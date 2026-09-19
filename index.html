@@ -66,6 +66,8 @@ section{padding-block:clamp(54px,8vw,96px)}
 .top nav a.nav-dal{color:var(--pine);font-weight:500;border:1px solid var(--line);white-space:nowrap}
 .top nav a.nav-dal:hover{background:var(--veil);color:var(--pine)}
 @media(max-width:560px){.top nav a.nav-dal{font-size:13px;padding:6px 9px}}
+.dl-sm{display:none}@media(max-width:700px){.dl-lg{display:none}.dl-sm{display:inline}}
+@media(max-width:480px){.top .wrap{gap:8px;padding-inline:12px}.top nav{gap:4px}.mark{font-size:14px;gap:6px;line-height:1.15}.mark svg{width:24px;height:24px}.langs button{padding:5px 7px;font-size:12px}.top nav a.nav-dal,.top nav .btn.sm{padding:5px 8px;font-size:12.5px}}
 .langs{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
 .langs button{border:none;background:none;font:inherit;font-size:13px;font-weight:500;padding:6px 11px;cursor:pointer;color:var(--muted)}
 .langs button[aria-pressed="true"]{background:var(--pine);color:#fff}
@@ -377,12 +379,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
       <a href="#how" class="hide-sm" data-i="nav_how"></a>
       <a href="#who" class="hide-sm" data-i="nav_who"></a>
       <a href="#pricing" class="hide-sm" data-i="nav_price"></a>
-      <a href="/dalelak/" class="nav-dal" data-i="nav_dal"></a>
       <div class="langs" role="group" aria-label="Language">
         <button data-l="ar" aria-pressed="true">ع</button>
         <button data-l="tr" aria-pressed="false">TR</button>
         <button data-l="en" aria-pressed="false">EN</button>
       </div>
+      <a href="/services/" class="nav-dal"><span class="dl-lg" data-i="nav_dal"></span><span class="dl-sm" data-i="nav_dal_s"></span></a>
       <a class="btn sm ghost" href="https://app.managesmarter.app" data-i="nav_login"></a>
     </nav>
   </div>
@@ -856,7 +858,8 @@ nav_sys:["الأنظمة","Systems","Sistemler"],
 nav_how:["كيف يبدأ","How it starts","Nasıl başlar"],
 nav_price:["الأسعار","Pricing","Fiyatlar"],
 nav_login:["دخول","Sign in","Giriş"],
-nav_dal:["خدمات دليلك","Dalelak services","Dalelak hizmetleri"],
+nav_dal:["خدماتنا الإضافية وشركاؤنا","More services & partners","Ek hizmetler ve ortaklar"],
+nav_dal_s:["خدماتنا","Services","Hizmetler"],
 
 h1:["مدرستك تعمل في عشرة أماكن.\nاجمعها في مكان واحد.",
     "Your school runs in ten places.\nBring it into one.",
