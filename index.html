@@ -90,6 +90,10 @@ section{padding-block:clamp(54px,8vw,96px)}
 @media(min-width:940px){.hero .wrap{grid-template-columns:1.02fr .98fr}}
 .hero p{margin-top:18px;font-size:18.5px}
 .hero .cta{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+.btn.try{background:var(--amber);border-color:var(--amber);color:#fff}
+.btn.try:hover{background:#A96F25;border-color:#A96F25;color:#fff}
+.try-note{font-size:13.5px;color:var(--muted);margin-top:10px}
+@media(max-width:700px){.nav-try{display:none}}
 .hero small{display:block;margin-top:16px;color:var(--muted);font-size:14px}
 
 /* ---------- assembly ---------- */
@@ -385,6 +389,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
         <button data-l="en" aria-pressed="false">EN</button>
       </div>
       <a href="/services/" class="nav-dal"><span class="dl-lg" data-i="nav_dal"></span><span class="dl-sm" data-i="nav_dal_s"></span></a>
+      <a class="btn sm try nav-try" href="https://app.managesmarter.app/?demo=1" target="_blank" rel="noopener" data-i="nav_try"></a>
       <a class="btn sm ghost" href="https://app.managesmarter.app" data-i="nav_login"></a>
     </nav>
   </div>
@@ -398,12 +403,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
       <h1 data-i="h1"></h1>
       <p class="lede" data-i="hsub"></p>
       <div class="cta">
+        <a class="btn try" href="https://app.managesmarter.app/?demo=1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span data-i="cta_try"></span>
+        </a>
         <a class="btn wa" href="https://wa.me/905452295764" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.2.3 0 .5.2.3.7 1.2 1.6 2 1.1.9 1.9 1.2 2.2 1.4.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.6 0 1z"/></svg>
           <span data-i="cta_wa"></span>
         </a>
         <a class="btn ghost" href="#systems" data-i="cta_sys"></a>
       </div>
+      <p class="try-note" data-i="try_note"></p>
       <small data-i="hnote"></small>
     </div>
 
@@ -868,6 +878,9 @@ hsub:["الأنشطة في ملف، الانضباط في دفتر، ملاحظ�
       "Activities in a spreadsheet, discipline in a notebook, parent feedback in WhatsApp, tasks in a meeting. Manage Smarter brings them into one platform every staff member opens from their phone — each department seeing only what concerns them.",
       "Etkinlikler bir dosyada, disiplin bir defterde, veli geri bildirimleri WhatsApp'ta, görevler toplantıda. Manage Smarter bunları tek bir platformda toplar; her personel telefonundan açar, her birim yalnızca kendi alanını görür."],
 cta_wa:["تحدث معنا على واتساب","Message us on WhatsApp","WhatsApp'tan yazın"],
+cta_try:["جرّب النظام الآن","Try the system now","Sistemi hemen deneyin"],
+nav_try:["جرّب النظام","Try it","Deneyin"],
+try_note:["نسخة تجريبية كاملة لمدرسة افتراضية، بدون تسجيل.","A full demo of a sample school — no sign-up.","Örnek bir okulun tam demosu — kayıt gerekmez."],
 cta_sys:["شاهد الأنظمة","See the systems","Sistemleri görün"],
 hnote:["تعمل بالعربية والتركية والإنجليزية · على الموبايل والكمبيوتر",
        "Works in Arabic, Turkish and English · on phone and desktop",
