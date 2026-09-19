@@ -144,6 +144,7 @@ footer{border-top:1px solid var(--line);background:rgba(6,25,37,.85);padding:20p
 .offline-note{display:none;background:rgba(209,154,56,.16);border:1px solid rgba(235,197,124,.3);color:#EBC57C;
   border-radius:10px;padding:10px 14px;font-size:14.5px;margin-bottom:16px}
 .offline-note.show{display:block}
+.f-phones a{color:inherit;text-decoration:none}.f-phones{display:inline-flex;flex-direction:column;gap:2px;line-height:1.5;direction:ltr;text-align:left}.f-phones a{unicode-bidi:isolate}
 .call-only{opacity:.75;font-size:.85em;margin-inline-start:6px}
 </style>
 </head>
@@ -248,7 +249,7 @@ footer{border-top:1px solid var(--line);background:rgba(6,25,37,.85);padding:20p
 <footer><div class="wrap f-in">
   <span class="kufi" style="color:#fff;font-weight:700">دليلك · DALELAK</span>
   <span id="fTag"></span>
-  <span dir="ltr">+90 551 645 42 86</span>
+  <span class="f-phones"><a dir="ltr" href="tel:+905516454286">+90 551 645 42 86</a><span class="f-call"><a dir="ltr" href="tel:+905453600612">+90 545 360 06 12</a> <small class="call-only" id="fCall"></small></span></span>
 </div></footer>
 
 <a class="float-wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -525,6 +526,7 @@ function render(){
   document.getElementById('waTop').href = wa(d.waGeneral);
   document.getElementById('waFloat').href = wa(d.waGeneral);
   document.getElementById('fTag').textContent = d.ftag;
+  document.getElementById('fCall').textContent = '('+d.contact.callOnly+')';
   document.getElementById('offlineNote').textContent = d.offline;
   document.getElementById('iosTxt').innerHTML = d.ios;
   document.getElementById('iosClose').textContent = d.iosClose;
