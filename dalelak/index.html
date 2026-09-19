@@ -144,6 +144,7 @@ footer{border-top:1px solid var(--line);background:rgba(6,25,37,.85);padding:20p
 .offline-note{display:none;background:rgba(209,154,56,.16);border:1px solid rgba(235,197,124,.3);color:#EBC57C;
   border-radius:10px;padding:10px 14px;font-size:14.5px;margin-bottom:16px}
 .offline-note.show{display:block}
+.call-only{opacity:.75;font-size:.85em;margin-inline-start:6px}
 </style>
 </head>
 <body>
@@ -290,7 +291,7 @@ ar:{dir:'rtl',brand:'دليلك',install:'تثبيت التطبيق',wa:'وات�
     minis:[['ترجمة محلّفة','تُقبل في الدوائر الرسمية من أول مرة'],['مرافقة ميدانية','معاك داخل الدائرة والمشفى، مش بس على التليفون'],['متابعة للنهاية','تحديث دوري لحالة ملفك حتى النتيجة']]},
   contact:{title:'وصلت لآخر الخريطة… ابدأ من هنا',
     lede:'فريق دليلك في إسطنبول. اكتب لنا خدمتك وحالتك في رسالة واحدة، ونرد بالمطلوب والسعر والمدة بوضوح.',
-    loc:'إسطنبول · تركيا', hours:'الرد على الرسائل يوميًا خلال ساعات العمل',
+    loc:'إسطنبول · تركيا', callOnly:'للاتصال فقط', hours:'الرد على الرسائل يوميًا خلال ساعات العمل',
     sideH:'افتح محادثة دلوقتي', sideP:'رسالة واحدة تكفي: اسمك، الخدمة، ووضعك الحالي.',
     btn:'فتح واتساب', note:'أو اتصل مباشرة على الرقم فوق.'},
   s:{
@@ -364,7 +365,7 @@ en:{dir:'ltr',brand:'Dalelak',install:'Install app',wa:'WhatsApp',price:'Service
     minis:[['Sworn translation','Accepted by official offices the first time'],['On-site support','With you inside the office and the hospital, not just on the phone'],['Followed to the end','Regular updates on your file until the result']]},
   contact:{title:'End of the map — start here',
     lede:'The Dalelak team is in Istanbul. Send us your service and situation in one message, and we reply with the requirements, the price and the timeline.',
-    loc:'Istanbul · Türkiye', hours:'Messages answered daily during working hours',
+    loc:'Istanbul · Türkiye', callOnly:'Calls only', hours:'Messages answered daily during working hours',
     sideH:'Open a chat now', sideP:'One message is enough: your name, the service, and your current situation.',
     btn:'Open WhatsApp', note:'Or call the number above directly.'},
   s:{
@@ -486,6 +487,7 @@ function contactHTML(d){
     '<div class="box"><div class="svc-head"><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"/><circle cx="12" cy="11" r="2.6"/></svg></div><h2>'+c.title+'</h2></div>'+
     '<p class="lede">'+c.lede+'</p><ul class="c-list">'+
     '<li><svg viewBox="0 0 24 24">'+ICON.contact+'</svg><a dir="ltr" href="tel:+905516454286">+90 551 645 42 86</a></li>'+
+    '<li><svg viewBox="0 0 24 24">'+ICON.contact+'</svg><span><a dir="ltr" href="tel:+905453600612">+90 545 360 06 12</a> <small class="call-only">('+c.callOnly+')</small></span></li>'+
     '<li><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg><a dir="ltr" href="mailto:tareknady24@gmail.com">tareknady24@gmail.com</a></li>'+
     '<li><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"/><circle cx="12" cy="11" r="2.6"/></svg><span>'+c.loc+'</span></li>'+
     '<li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>'+c.hours+'</span></li></ul></div>'+
