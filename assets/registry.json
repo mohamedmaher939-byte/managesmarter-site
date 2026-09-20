@@ -1,6 +1,18 @@
 {
   "about": "Manage Smarter visual asset registry. Check here before generating anything new; add every new asset here.",
-  "fields": ["id","type","source","prompt","model","dimensions","duration","file","used_in","tags","created"],
+  "fields": [
+    "id",
+    "type",
+    "source",
+    "prompt",
+    "model",
+    "dimensions",
+    "duration",
+    "file",
+    "used_in",
+    "tags",
+    "created"
+  ],
   "assets": [
     {
       "id": "hero-orbit-v1",
@@ -11,8 +23,149 @@
       "dimensions": "responsive, 1:0.86",
       "duration": "loop",
       "file": "index.html#orb",
-      "used_in": ["index.html hero"],
-      "tags": ["hero","chaos-to-order","orbit","students","teachers","office","files","attendance","calendar","discipline"],
+      "used_in": [
+        "index.html hero"
+      ],
+      "tags": [
+        "hero",
+        "chaos-to-order",
+        "orbit",
+        "students",
+        "teachers",
+        "office",
+        "files",
+        "tasks",
+        "calendar",
+        "discipline"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-campus-v1",
+      "type": "image",
+      "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 16:9",
+      "dimensions": "1600x900 (+800 sm)",
+      "file": "assets/img/ms-campus-v1.webp",
+      "used_in": [
+        "index.html #world campus"
+      ],
+      "tags": [
+        "campus",
+        "diorama",
+        "isometric",
+        "school",
+        "3d-style",
+        "hero-alt",
+        "3d-clay-style"
+      ],
+      "source": "Higgsfield",
+      "model": "z_image",
+      "duration": null,
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-students-v1",
+      "type": "image",
+      "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
+      "dimensions": "1200x900 (+600 sm)",
+      "file": "assets/img/ms-students-v1.webp",
+      "used_in": [
+        "index.html #world card"
+      ],
+      "tags": [
+        "students",
+        "corridor",
+        "hijab",
+        "uniform",
+        "3d-clay-style"
+      ],
+      "source": "Higgsfield",
+      "model": "z_image",
+      "duration": null,
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-teacher-v1",
+      "type": "image",
+      "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
+      "dimensions": "1200x900 (+600 sm)",
+      "file": "assets/img/ms-teacher-v1.webp",
+      "used_in": [
+        "index.html #world card"
+      ],
+      "tags": [
+        "teacher",
+        "classroom",
+        "tablet",
+        "tasks",
+        "3d-clay-style"
+      ],
+      "source": "Higgsfield",
+      "model": "z_image",
+      "duration": null,
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-activities-v1",
+      "type": "image",
+      "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
+      "dimensions": "1200x900 (+600 sm)",
+      "file": "assets/img/ms-activities-v1.webp",
+      "used_in": [
+        "index.html #world card"
+      ],
+      "tags": [
+        "activities",
+        "courtyard",
+        "science-fair",
+        "calendar",
+        "3d-clay-style"
+      ],
+      "source": "Higgsfield",
+      "model": "z_image",
+      "duration": null,
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-guidance-v1",
+      "type": "image",
+      "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
+      "dimensions": "1200x900 (+600 sm)",
+      "file": "assets/img/ms-guidance-v1.webp",
+      "used_in": [
+        "index.html #world card"
+      ],
+      "tags": [
+        "guidance",
+        "counselor",
+        "discipline",
+        "student",
+        "3d-clay-style"
+      ],
+      "source": "Higgsfield",
+      "model": "z_image",
+      "duration": null,
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-office-v1",
+      "type": "image",
+      "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
+      "dimensions": "1200x900 (+600 sm)",
+      "file": "assets/img/ms-office-v1.webp",
+      "used_in": [
+        "index.html #world card"
+      ],
+      "tags": [
+        "office",
+        "administrator",
+        "dashboard",
+        "leadership",
+        "3d-clay-style"
+      ],
+      "source": "Higgsfield",
+      "model": "z_image",
+      "duration": null,
       "created": "2026-09-20"
     }
   ]

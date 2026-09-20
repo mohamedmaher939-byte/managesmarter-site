@@ -21,6 +21,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+body{overflow-x:clip}
 body{
   background:var(--bg); color:var(--body);
   font-family:"Tajawal","Rubik",system-ui,sans-serif;
@@ -95,6 +96,37 @@ section{padding-block:clamp(54px,8vw,96px)}
 .try-note{font-size:13.5px;color:var(--muted);margin-top:10px}
 @media(max-width:700px){.nav-try{display:none}}
 .hero small{display:block;margin-top:16px;color:var(--muted);font-size:14px}
+
+
+/* ---------- school world (3D) ---------- */
+.world{background:linear-gradient(180deg,var(--bg),#E4EBE4);overflow:hidden}
+.world h2+p{max-width:60ch;margin-top:10px}
+.campus{perspective:1600px;margin:30px auto 0;max-width:980px}
+.campus .fl{transform-style:preserve-3d;transform:rotateX(var(--rx,22deg)) rotateY(var(--ry,0deg)) rotateZ(var(--rz,-3deg)) scale(var(--sc,.9));
+  will-change:transform;border-radius:28px;background:#F6F0E4;box-shadow:0 60px 80px -60px rgba(18,67,58,.55)}
+.campus img{display:block;width:100%;height:auto;border-radius:28px;animation:bob 7s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.scns{display:grid;gap:18px;margin-top:34px;grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.scns{grid-template-columns:repeat(2,1fr);gap:12px}}
+.scn{margin:0;perspective:900px;display:block;text-decoration:none}
+.scn .in{position:relative;height:100%;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);
+  transform:rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg));transition:transform .35s cubic-bezier(.2,.9,.25,1),box-shadow .35s;
+  box-shadow:0 24px 40px -34px rgba(18,67,58,.6)}
+.scn:hover .in{box-shadow:0 34px 50px -30px rgba(18,67,58,.6)}
+.scn img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .6s}
+.scn:hover img{transform:scale(1.05)}
+.scn figcaption{padding:12px 14px 14px}
+.scn figcaption b{display:block;font:600 15.5px "Rubik","Tajawal",sans-serif;color:var(--ink)}
+.scn figcaption span{display:block;font-size:14px;color:var(--muted);line-height:1.5;margin-top:2px}
+.cta-card .in{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;padding:22px;
+  background:radial-gradient(circle at 20% 15%,#3E8C7A,#12433A);color:#fff;border:none;min-height:100%}
+.cta-card b{font:600 19px "Rubik","Tajawal",sans-serif}
+.cta-card span{font-size:14.5px;opacity:.85;line-height:1.5}
+@media(max-width:520px){.scn figcaption{padding:9px 10px 11px}.scn figcaption b{font-size:14px}.scn figcaption span{font-size:12.5px}.cta-card b{font-size:16px}}
+/* reveal from depth */
+.rv{opacity:0;transform:perspective(900px) translateY(46px) rotateX(16deg);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.9,.25,1)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.campus img{animation:none}}
 
 /* ---------- assembly ---------- */
 .stage{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px;
@@ -444,6 +476,43 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
     </div>
   </div>
 </section>
+
+<section class="world" id="world">
+  <div class="wrap">
+    <h2 class="rv" data-i="w_h"></h2>
+    <p class="rv" data-i="w_sub"></p>
+    <div class="campus rv"><div class="fl" id="campus">
+      <img src="/assets/img/ms-campus-v1.webp" width="1600" height="900" decoding="async" data-alt="w_h" alt="">
+    </div></div>
+    <div class="scns">
+      <figure class="scn rv"><div class="in">
+        <img src="/assets/img/ms-students-v1-sm.webp" srcset="/assets/img/ms-students-v1-sm.webp 600w, /assets/img/ms-students-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="ws_t" alt="">
+        <figcaption><b data-i="ws_t"></b><span data-i="ws_p"></span></figcaption>
+      </div></figure>
+      <figure class="scn rv"><div class="in">
+        <img src="/assets/img/ms-teacher-v1-sm.webp" srcset="/assets/img/ms-teacher-v1-sm.webp 600w, /assets/img/ms-teacher-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wt_t" alt="">
+        <figcaption><b data-i="wt_t"></b><span data-i="wt_p"></span></figcaption>
+      </div></figure>
+      <figure class="scn rv"><div class="in">
+        <img src="/assets/img/ms-activities-v1-sm.webp" srcset="/assets/img/ms-activities-v1-sm.webp 600w, /assets/img/ms-activities-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wa_t" alt="">
+        <figcaption><b data-i="wa_t"></b><span data-i="wa_p"></span></figcaption>
+      </div></figure>
+      <figure class="scn rv"><div class="in">
+        <img src="/assets/img/ms-guidance-v1-sm.webp" srcset="/assets/img/ms-guidance-v1-sm.webp 600w, /assets/img/ms-guidance-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wg_t" alt="">
+        <figcaption><b data-i="wg_t"></b><span data-i="wg_p"></span></figcaption>
+      </div></figure>
+      <figure class="scn rv"><div class="in">
+        <img src="/assets/img/ms-office-v1-sm.webp" srcset="/assets/img/ms-office-v1-sm.webp 600w, /assets/img/ms-office-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wo_t" alt="">
+        <figcaption><b data-i="wo_t"></b><span data-i="wo_p"></span></figcaption>
+      </div></figure>
+      <a class="scn rv cta-card" href="https://app.managesmarter.app/?demo=1" target="_blank" rel="noopener"><div class="in">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <b data-i="wc_t"></b><span data-i="wc_p"></span>
+      </div></a>
+    </div>
+  </div>
+</section>
+
 
 <section class="chaos">
   <div class="wrap">
@@ -857,10 +926,18 @@ hnote:["تعمل بالعربية والتركية والإنجليزية · ع�
        "Arapça, Türkçe ve İngilizce · telefon ve bilgisayarda"],
 asm_state:["بيانات مدرستك مبعثرة في كل مكان","Your school's data is scattered everywhere","Okulunuzun verileri her yere dağılmış"],
 orb_alt:["عناصر المدرسة المبعثرة — الطلاب والمعلمون والإدارة والملفات — تتجمع حول Manage Smarter في نظام واحد مترابط","Scattered school pieces — students, teachers, offices, files — come together around Manage Smarter as one connected system","Dağınık okul parçaları — öğrenciler, öğretmenler, idare, dosyalar — Manage Smarter etrafında tek bir sistemde birleşir"],
-orb_n:{st:["الطلاب","Students","Öğrenciler"],te:["المعلمون","Teachers","Öğretmenler"],of:["الإدارة","Office","İdare"],dp:["الأقسام","Departments","Bölümler"],dc:["الملفات","Files","Dosyalar"],at:["الحضور","Attendance","Yoklama"],ca:["التقويم","Calendar","Takvim"],ds:["الانضباط","Discipline","Disiplin"]},
+orb_n:{st:["الطلاب","Students","Öğrenciler"],te:["المعلمون","Teachers","Öğretmenler"],of:["الإدارة","Office","İdare"],dp:["الأقسام","Departments","Bölümler"],dc:["الملفات","Files","Dosyalar"],at:["المهام","Tasks","Görevler"],ca:["التقويم","Calendar","Takvim"],ds:["الانضباط","Discipline","Disiplin"]},
 orb_f:[["ملف الطالب يصل إلى المكتب المختص فورًا","A student's file reaches the right office instantly","Öğrenci dosyası anında doğru ofise ulaşır"],
-       ["المعلم يسجّل، والقسم يرى الصورة كاملة","Teachers record it, the department sees the full picture","Öğretmen kaydeder, bölüm tüm resmi görür"],
+       ["المعلم ينجز مهمته، والقسم يرى الصورة كاملة","Teachers finish their tasks, the department sees the full picture","Öğretmen görevini bitirir, bölüm tüm resmi görür"],
        ["الإدارة ترى التقويم والانضباط في شاشة واحدة","Leadership sees calendar and discipline on one screen","Yönetim takvimi ve disiplini tek ekranda görür"]],
+w_h:["مدرستك كلها… في منصة واحدة","Your whole school, on one platform","Tüm okulunuz tek platformda"],
+w_sub:["من الفصل إلى مكتب المدير: كل قسم يرى ما يخصه، وكل معلومة تصل لمكانها.","From the classroom to the principal's office: each department sees what concerns it, and every piece of information reaches its place.","Sınıftan müdür odasına: her bölüm kendini ilgilendireni görür, her bilgi yerine ulaşır."],
+ws_t:["الطلاب","Students","Öğrenciler"],ws_p:["ملف كل طالب في مكانه","Every student's file in its place","Her öğrencinin dosyası yerinde"],
+wt_t:["المعلمون","Teachers","Öğretmenler"],wt_p:["المهام والمتابعة من الموبايل","Tasks and follow-up from their phone","Görevler ve takip telefondan"],
+wa_t:["الأنشطة والتقويم","Activities & calendar","Etkinlikler ve takvim"],wa_p:["خطة السنة بدون تعارض مواعيد","The year's plan with no date clashes","Çakışmasız yıllık plan"],
+wg_t:["الإرشاد والانضباط","Guidance & discipline","Rehberlik ve disiplin"],wg_p:["متابعة كل طالب بهدوء ووضوح","Follow each student calmly and clearly","Her öğrenciyi sakin ve net takip"],
+wo_t:["الإدارة","Leadership","Yönetim"],wo_p:["كل الأقسام في شاشة واحدة","Every department on one screen","Tüm bölümler tek ekranda"],
+wc_t:["جرّب النظام الآن","Try the system now","Sistemi şimdi deneyin"],wc_p:["مدرسة تجريبية كاملة، بدون تسجيل","A full sample school, no sign-up","Tam örnek okul, kayıt yok"],
 asm_btn:["نظّمها","Organize it","Düzenle"],
 asm_btn2:["أعِد الفوضى","Scatter again","Tekrar dağıt"],
 
@@ -996,6 +1073,7 @@ function paint(){
     if(e.dataset.i==="h1"){e.innerHTML=v[LI].split("\n").map(x=>`<span style="display:block">${x}</span>`).join("");}
   });
   $$(".langs button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.l===L[LI]));
+  $$("[data-alt]").forEach(e=>e.alt=D[e.dataset.alt][LI]);
   if(window.ORB) ORB.paint();
   document.title = LI===0 ? "Manage Smarter — إدارة مدرسية في مكان واحد"
     : LI===1 ? "Manage Smarter — school operations in one place"
@@ -1131,6 +1209,50 @@ window.ORB=(()=>{
   return {paint};
 })();
 ORB.paint();
+
+/* 3D layer: reveal-from-depth on scroll, scroll-driven campus, pointer tilt on scene cards */
+(()=>{
+  const RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // reveal: also lift the existing sections' key blocks
+  $$(".chaos li,.sys article,#how li,.trust .wrap>*,#pricing .wrap>*,#faq details,#contact .wrap>*,section>.wrap>h2").forEach(e=>e.classList.add("rv"));
+  const rv=$$(".rv");
+  if(RM||!("IntersectionObserver" in window)){rv.forEach(e=>e.classList.add("on"));}
+  else{
+    const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){
+      const sib=[...x.target.parentElement.children].filter(c=>c.classList.contains("rv"));
+      x.target.style.transitionDelay=Math.min(sib.indexOf(x.target),5)*90+"ms";
+      x.target.classList.add("on");io.unobserve(x.target);}}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    rv.forEach(e=>io.observe(e));
+  }
+  if(RM) return;
+  // campus: tilted miniature that flattens and turns toward you as you scroll
+  const c=$("#campus"); let px=0,py=0,tick=false;
+  function upd(){
+    tick=false;const r=c.getBoundingClientRect(),vh=innerHeight;
+    const p=Math.max(0,Math.min(1,(vh-r.top)/(vh+r.height*.4)));
+    const e=1-Math.pow(1-p,2);
+    c.style.setProperty("--rx",(26-24*e+py*6).toFixed(2)+"deg");
+    c.style.setProperty("--ry",(px*8).toFixed(2)+"deg");
+    c.style.setProperty("--rz",(-5+5*e).toFixed(2)+"deg");
+    c.style.setProperty("--sc",(.84+.16*e).toFixed(3));
+  }
+  const req=()=>{if(!tick){tick=true;requestAnimationFrame(upd);}};
+  addEventListener("scroll",req,{passive:true});addEventListener("resize",req);
+  c.parentElement.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();
+    px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5;req();});
+  c.parentElement.addEventListener("pointerleave",()=>{px=py=0;req();});
+  upd();
+  // scene cards: tilt toward the pointer (mouse and finger)
+  $$(".scn").forEach(card=>{
+    const inn=card.querySelector(".in");
+    const mv=e=>{const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      inn.style.setProperty("--ty",(x*14).toFixed(1)+"deg");inn.style.setProperty("--tx",(-y*14).toFixed(1)+"deg");};
+    card.addEventListener("pointermove",mv);card.addEventListener("pointerdown",mv);
+    const rs=()=>{inn.style.setProperty("--ty","0deg");inn.style.setProperty("--tx","0deg");};
+    card.addEventListener("pointerleave",rs);card.addEventListener("pointerup",rs);card.addEventListener("pointercancel",rs);
+  });
+})();
 
 </script>
 </body>
