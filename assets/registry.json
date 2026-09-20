@@ -395,7 +395,123 @@
         "video"
       ],
       "created": "2026-09-20"
+    },
+    {
+      "id": "ms-story-arrive",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5",
+      "prompt": "cinematic photo, one continuous story of a student's day — student arrives at school; same boy, green uniform",
+      "dimensions": "1280w (+640 sm)",
+      "duration": null,
+      "file": "assets/story/arrive.webp",
+      "used_in": [
+        "index.html #story"
+      ],
+      "tags": [
+        "story",
+        "photoreal",
+        "student-day"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-story-lesson",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5",
+      "prompt": "cinematic photo, one continuous story of a student's day — student in the lesson; same boy, green uniform",
+      "dimensions": "1280w (+640 sm)",
+      "duration": null,
+      "file": "assets/story/lesson.webp",
+      "used_in": [
+        "index.html #story"
+      ],
+      "tags": [
+        "story",
+        "photoreal",
+        "student-day"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-story-desk",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5",
+      "prompt": "cinematic photo, one continuous story of a student's day — overloaded staff desk; same boy, green uniform",
+      "dimensions": "1280w (+640 sm)",
+      "duration": null,
+      "file": "assets/story/desk.webp",
+      "used_in": [
+        "index.html #story"
+      ],
+      "tags": [
+        "story",
+        "photoreal",
+        "student-day"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-story-box",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5",
+      "prompt": "cinematic photo, one continuous story of a student's day — closed green box on a desk; same boy, green uniform",
+      "dimensions": "1280w (+640 sm)",
+      "duration": null,
+      "file": "assets/story/box.webp",
+      "used_in": [
+        "index.html #story"
+      ],
+      "tags": [
+        "story",
+        "photoreal",
+        "student-day"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-story-key",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5",
+      "prompt": "cinematic photo, one continuous story of a student's day — box opened: brass key engraved Manage Smarter; same boy, green uniform",
+      "dimensions": "1280w (+640 sm)",
+      "duration": null,
+      "file": "assets/story/key.webp",
+      "used_in": [
+        "index.html #story"
+      ],
+      "tags": [
+        "story",
+        "photoreal",
+        "student-day",
+        "key",
+        "brand-engraved-in-code"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-story-after",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5",
+      "prompt": "cinematic photo, one continuous story of a student's day — calm organised corridor; same boy, green uniform",
+      "dimensions": "1280w (+640 sm)",
+      "duration": null,
+      "file": "assets/story/after.webp",
+      "used_in": [
+        "index.html #story"
+      ],
+      "tags": [
+        "story",
+        "photoreal",
+        "student-day"
+      ],
+      "created": "2026-09-20"
     }
   ],
-  "notes": "Videos: H.264 mp4 + VP9 webm; page picks webm when supported, lazy-loads on scroll, pauses off-screen, skipped on data-saver/reduced-motion. Generated during the Higgsfield MCP Plus trial (Sept 2026)."
+  "notes": "Videos: H.264 mp4 + VP9 webm; page picks webm when supported, lazy-loads on scroll, pauses off-screen, skipped on data-saver/reduced-motion. Generated during the Higgsfield MCP Plus trial (Sept 2026). Story frames: the key's brass tag was left blank by the model and engraved 'Manage Smarter' in a browser render (scratchpad/brand/engrave.html), so the wording stays editable."
 }
