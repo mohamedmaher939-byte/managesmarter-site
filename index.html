@@ -160,30 +160,21 @@ section{padding-block:clamp(54px,8vw,96px)}
 @media(prefers-reduced-motion:reduce){.sv{display:none}}
 
 
-/* ================= the story: one student, one day ================= */
-.story{background:linear-gradient(180deg,#0B211D,#0E2B24 60%,#0B211D);color:#E8F1EE;padding-block:clamp(56px,8vw,96px)}
-.story .kicker{display:inline-block;font:500 12.5px "Rubik",sans-serif;letter-spacing:.14em;text-transform:uppercase;
-  color:#F0C07E;background:rgba(240,192,126,.12);border:1px solid rgba(240,192,126,.25);padding:5px 14px;border-radius:999px}
-.story h2{color:#fff;font-size:clamp(25px,4vw,40px);margin-top:14px;text-wrap:balance}
-.story .lede{color:#BFE3D7;margin-top:10px;max-width:56ch;font-size:clamp(15px,1.7vw,18px)}
-.frames{margin-top:clamp(28px,5vw,48px);display:grid;gap:clamp(26px,5vw,56px)}
-.frame{margin:0;display:grid;gap:16px;align-items:center;opacity:0;transform:translateY(26px);
-  transition:opacity .9s ease,transform 1s cubic-bezier(.2,.9,.25,1)}
-.frame.on{opacity:1;transform:none}
-@media(min-width:820px){
-  .frame{grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,44px)}
-  .frame:nth-child(even) .shot{order:2}
-}
-.shot{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#0C2621;
-  box-shadow:0 40px 70px -45px rgba(0,0,0,.85)}
-.shot img{display:block;width:100%;height:auto;transform:scale(1.02);transition:transform 1.4s ease}
-.frame.on .shot img{transform:scale(1)}
-.frame figcaption b{display:block;font:600 clamp(19px,2.4vw,27px)/1.3 "Rubik","Tajawal",sans-serif;color:#fff;text-wrap:balance}
-.frame figcaption span{display:block;margin-top:10px;color:#BFE3D7;font-size:clamp(14.5px,1.6vw,17px);line-height:1.75;text-wrap:balance}
-.frame.key .shot{border-color:rgba(240,192,126,.55);box-shadow:0 0 0 1px rgba(240,192,126,.25),0 50px 80px -45px rgba(192,132,52,.65)}
-.frame.key figcaption b{color:#F3D7AE}
-.story-cta{margin-top:clamp(30px,5vw,50px);display:flex;gap:12px;flex-wrap:wrap}
-@media(prefers-reduced-motion:reduce){.frame{opacity:1;transform:none}.shot img{transform:none}}
+/* ================= film bands: the principal's evening ================= */
+.film{position:relative;height:clamp(320px,62svh,620px);overflow:hidden;background:#07120F;isolation:isolate}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
+.film video.on{opacity:1}
+.film .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,rgba(7,18,15,.55),rgba(7,18,15,.18) 35%,rgba(7,18,15,.65))}
+.film .over{position:relative;z-index:3;height:100%;display:grid;place-content:center;text-align:center;padding:0 22px;color:#fff}
+.film .over b{display:block;font:600 clamp(21px,3.4vw,38px)/1.25 "Rubik","Tajawal",sans-serif;text-wrap:balance;
+  text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.film .over span{display:block;margin-top:10px;font-size:clamp(14.5px,1.7vw,18px);color:#D8E7E1;text-wrap:balance}
+.film .over .row{margin-top:20px;display:flex;gap:11px;justify-content:center;flex-wrap:wrap}
+.film.key::after{background:linear-gradient(180deg,rgba(7,18,15,.5),rgba(10,26,20,.25) 40%,rgba(7,18,15,.78))}
+.film.key .over b{color:#F3D7AE}
+@media(prefers-reduced-motion:reduce){.film video{display:none}}
 
 /* alive buttons */
 .btn,.scn,.snd{will-change:transform}
@@ -532,7 +523,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
           <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.2.3 0 .5.2.3.7 1.2 1.6 2 1.1.9 1.9 1.2 2.2 1.4.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.6 0 1z"/></svg>
           <span data-i="cta_wa"></span>
         </a>
-        <a class="btn ghost" href="#story" data-i="cta_sys"></a>
+        <a class="btn ghost" href="#film1" data-i="cta_sys"></a>
       </div>
       <p class="try-note" data-i="try_note"></p>
       <small data-i="hnote"></small>
@@ -556,62 +547,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
     </div>
   </div>
 </section>
-
-<section class="story" id="story">
-  <div class="wrap">
-    <span class="kicker" data-i="st_k"></span>
-    <h2 data-i="st_h"></h2>
-    <p class="lede" data-i="st_s"></p>
-    <div class="frames">
-  <figure class="frame">
-    <div class="shot">
-      <img src="/assets/story/arrive-sm.webp" srcset="/assets/story/arrive-sm.webp 640w, /assets/story/arrive.webp 1280w"
-           sizes="(max-width:760px) 92vw, 720px" width="1280" height="716" loading="lazy" decoding="async" data-alt="f1_t" alt="">
-    </div>
-    <figcaption><b data-i="f1_t"></b><span data-i="f1_p"></span></figcaption>
-  </figure>
-  <figure class="frame">
-    <div class="shot">
-      <img src="/assets/story/lesson-sm.webp" srcset="/assets/story/lesson-sm.webp 640w, /assets/story/lesson.webp 1280w"
-           sizes="(max-width:760px) 92vw, 720px" width="1280" height="716" loading="lazy" decoding="async" data-alt="f2_t" alt="">
-    </div>
-    <figcaption><b data-i="f2_t"></b><span data-i="f2_p"></span></figcaption>
-  </figure>
-  <figure class="frame">
-    <div class="shot">
-      <img src="/assets/story/desk-sm.webp" srcset="/assets/story/desk-sm.webp 640w, /assets/story/desk.webp 1280w"
-           sizes="(max-width:760px) 92vw, 720px" width="1280" height="716" loading="lazy" decoding="async" data-alt="f3_t" alt="">
-    </div>
-    <figcaption><b data-i="f3_t"></b><span data-i="f3_p"></span></figcaption>
-  </figure>
-  <figure class="frame">
-    <div class="shot">
-      <img src="/assets/story/box-sm.webp" srcset="/assets/story/box-sm.webp 640w, /assets/story/box.webp 1280w"
-           sizes="(max-width:760px) 92vw, 720px" width="1280" height="716" loading="lazy" decoding="async" data-alt="f4_t" alt="">
-    </div>
-    <figcaption><b data-i="f4_t"></b><span data-i="f4_p"></span></figcaption>
-  </figure>
-  <figure class="frame key">
-    <div class="shot">
-      <img src="/assets/story/key-sm.webp" srcset="/assets/story/key-sm.webp 640w, /assets/story/key.webp 1280w"
-           sizes="(max-width:760px) 92vw, 720px" width="1280" height="716" loading="lazy" decoding="async" data-alt="f5_t" alt="">
-    </div>
-    <figcaption><b data-i="f5_t"></b><span data-i="f5_p"></span></figcaption>
-  </figure>
-  <figure class="frame">
-    <div class="shot">
-      <img src="/assets/story/after-sm.webp" srcset="/assets/story/after-sm.webp 640w, /assets/story/after.webp 1280w"
-           sizes="(max-width:760px) 92vw, 720px" width="1280" height="716" loading="lazy" decoding="async" data-alt="f6_t" alt="">
-    </div>
-    <figcaption><b data-i="f6_t"></b><span data-i="f6_p"></span></figcaption>
-  </figure>
-    </div>
-    <div class="story-cta">
-      <a class="btn try" href="https://app.managesmarter.app/?demo=1" target="_blank" rel="noopener" data-i="cta_try"></a>
-      <a class="btn wa" href="https://wa.me/905452295764" target="_blank" rel="noopener" data-i="cta_wa"></a>
-    </div>
-  </div>
+<section class="film " id="film1" data-shots="1,2">
+  <img class="poster" src="/assets/film/shot1.webp" alt="" loading="lazy" decoding="async">
+  
 </section>
+
+
+
 
 
 <section class="chaos">
@@ -625,6 +567,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
       <li><i></i><div><b data-i="ch4b"></b><p data-i="ch4p"></p></div></li>
     </ul>
   </div>
+</section>
+
+
+<section class="film " id="film2" data-shots="3,4">
+  <img class="poster" src="/assets/film/shot3.webp" alt="" loading="lazy" decoding="async">
+  
 </section>
 
 <section id="systems">
@@ -820,6 +768,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
       <details><summary data-i="q5"></summary><p data-i="a5"></p></details>
     </div>
   </div>
+</section>
+
+
+<section class="film key" id="film3" data-shots="5,6">
+  <img class="poster" src="/assets/film/shot5.webp" alt="" loading="lazy" decoding="async">
+  <div class="over"><b data-i="film_k"></b><span data-i="film_s"></span><div class="row"><a class="btn try" href="https://app.managesmarter.app/?demo=1" target="_blank" rel="noopener" data-i="cta_try"></a><a class="btn wa" href="https://wa.me/905452295764" target="_blank" rel="noopener" data-i="cta_wa"></a></div></div>
 </section>
 
 <section id="pricing">
@@ -1066,6 +1020,8 @@ f5_t:["مفتاح واحد لمدرسة كاملة","One key for the whole schoo
 f5_p:["التقويم، الانضباط والإرشاد، المهام، وملاحظات أولياء الأمور — كلها جوه Manage Smarter، وكل قسم يفتح اللي يخصه بس.","Calendar, discipline and guidance, tasks and parent notes — all inside Manage Smarter, and each department opens only its own part.","Takvim, disiplin, görevler ve veli notları — hepsi Manage Smarter içinde; her bölüm yalnız kendi kısmını açar."],
 f6_t:["وبعدها، اليوم بيعدي أهدى","And then the day runs quieter","Ve gün daha sakin geçer"],
 f6_p:["الملاحظة وصلت للمسؤول عنها، والمتابعة اتقفلت، وكل حاجة اتسجلت في مكانها.","The note reached the person responsible, the follow-up was closed, and everything was recorded where it belongs.","Not sorumlusuna ulaştı, takip kapandı ve her şey ait olduğu yere kaydedildi."],
+film_k:["مفتاح واحد لمدرسة كاملة","One key for the whole school","Tüm okul için tek anahtar"],
+film_s:["التقويم، الانضباط والإرشاد، المهام، وأولياء الأمور — في منصة واحدة.","Calendar, discipline and guidance, tasks and parents — in one platform.","Takvim, disiplin, görevler ve veliler — tek platformda."],
 asm_btn:["نظّمها","Organize it","Düzenle"],
 asm_btn2:["أعِد الفوضى","Scatter again","Tekrar dağıt"],
 
@@ -1410,21 +1366,40 @@ ORB.paint();
 })();
 </script>
 <script>
-/* the story frames: reveal as they come into view; nothing runs off-screen */
+/* film bands: each band plays its two shots back to back, and only while it is on screen */
 (()=>{
-  const fr=[...document.querySelectorAll(".story .frame")];
-  if(!fr.length) return;
-  if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver" in window)){
-    fr.forEach(f=>f.classList.add("on"));return;}
-  const io=new IntersectionObserver(es=>es.forEach(x=>{
-    if(x.isIntersecting){x.target.classList.add("on");io.unobserve(x.target);}
-  }),{threshold:.2,rootMargin:"0px 0px -8% 0px"});
-  fr.forEach(f=>io.observe(f));
+  const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const save=navigator.connection&&navigator.connection.saveData;
+  const bands=[...document.querySelectorAll(".film")];
+  if(!bands.length||RM||save) return;
+  const mk=(n)=>{const v=document.createElement("video");v.muted=true;v.playsInline=true;
+    v.setAttribute("playsinline","");v.preload="none";v.dataset.n=n;return v;};
+  bands.forEach(b=>{const [a,c]=b.dataset.shots.split(",");
+    b._v=[mk(a),mk(c)];b._v.forEach(v=>b.insertBefore(v,b.querySelector(".over")||null));b._i=0;});
+  const src=v=>{if(v.src)return;const wb=v.canPlayType('video/webm; codecs="vp9"');
+    v.src="/assets/film/shot"+v.dataset.n+(wb?".webm":".mp4");};
+  function play(b,i){
+    const v=b._v[i],o=b._v[1-i];b._i=i;src(v);
+    v.currentTime=0;v.play().catch(()=>{});
+    v.classList.add("on");o&&o.classList.remove("on");
+    src(o); /* warm the next one while this one runs */
+    v.onended=()=>play(b,1-i);
+  }
+  new IntersectionObserver(es=>es.forEach(x=>{
+    const b=x.target;
+    if(x.isIntersecting) play(b,b._i||0);
+    else b._v.forEach(v=>{v.pause();v.classList.remove("on");});
+  }),{threshold:.25}).observe ? bands.forEach(b=>{
+    new IntersectionObserver(es=>es.forEach(x=>{
+      if(x.isIntersecting) play(b,b._i||0);
+      else b._v.forEach(v=>{v.pause();v.classList.remove("on");});
+    }),{threshold:.25}).observe(b);
+  }):0;
+  document.addEventListener("visibilitychange",()=>{if(document.hidden)bands.forEach(b=>b._v.forEach(v=>v.pause()));});
   /* buttons: a little life under the pointer */
-  document.querySelectorAll(".btn").forEach(b=>{
-    b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();
-      b.style.setProperty("--bx",(e.clientX-r.left)+"px");b.style.setProperty("--by2",(e.clientY-r.top)+"px");});
-  });
+  document.querySelectorAll(".btn").forEach(b=>b.addEventListener("pointermove",e=>{
+    const r=b.getBoundingClientRect();b.style.setProperty("--bx",(e.clientX-r.left)+"px");
+    b.style.setProperty("--by2",(e.clientY-r.top)+"px");}));
 })();
 </script>
 

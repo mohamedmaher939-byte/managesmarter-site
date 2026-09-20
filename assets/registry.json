@@ -397,121 +397,131 @@
       "created": "2026-09-20"
     },
     {
-      "id": "ms-story-arrive",
-      "type": "image",
+      "id": "ms-film-shot1",
+      "type": "video",
       "source": "Higgsfield",
-      "model": "gpt_image_2_5",
-      "prompt": "cinematic photo, one continuous story of a student's day — student arrives at school; same boy, green uniform",
-      "dimensions": "1280w (+640 sm)",
-      "duration": null,
-      "file": "assets/story/arrive.webp",
+      "model": "gpt_image_2_5 → seedance_2_0_mini (720p, 5s, silent)",
+      "prompt": "the principal's evening — school gate at golden hour, boys leaving; men and boys only, per Maher's instruction",
+      "dimensions": "960w",
+      "duration": "5s",
+      "file": "assets/film/shot1.mp4 (+ .webm, .webp poster)",
       "used_in": [
-        "index.html #story"
+        "index.html film bands"
       ],
       "tags": [
-        "story",
-        "photoreal",
-        "student-day"
-      ],
-      "created": "2026-09-20"
-    },
-    {
-      "id": "ms-story-lesson",
-      "type": "image",
-      "source": "Higgsfield",
-      "model": "gpt_image_2_5",
-      "prompt": "cinematic photo, one continuous story of a student's day — student in the lesson; same boy, green uniform",
-      "dimensions": "1280w (+640 sm)",
-      "duration": null,
-      "file": "assets/story/lesson.webp",
-      "used_in": [
-        "index.html #story"
-      ],
-      "tags": [
-        "story",
-        "photoreal",
-        "student-day"
-      ],
-      "created": "2026-09-20"
-    },
-    {
-      "id": "ms-story-desk",
-      "type": "image",
-      "source": "Higgsfield",
-      "model": "gpt_image_2_5",
-      "prompt": "cinematic photo, one continuous story of a student's day — overloaded staff desk; same boy, green uniform",
-      "dimensions": "1280w (+640 sm)",
-      "duration": null,
-      "file": "assets/story/desk.webp",
-      "used_in": [
-        "index.html #story"
-      ],
-      "tags": [
-        "story",
-        "photoreal",
-        "student-day"
-      ],
-      "created": "2026-09-20"
-    },
-    {
-      "id": "ms-story-box",
-      "type": "image",
-      "source": "Higgsfield",
-      "model": "gpt_image_2_5",
-      "prompt": "cinematic photo, one continuous story of a student's day — closed green box on a desk; same boy, green uniform",
-      "dimensions": "1280w (+640 sm)",
-      "duration": null,
-      "file": "assets/story/box.webp",
-      "used_in": [
-        "index.html #story"
-      ],
-      "tags": [
-        "story",
-        "photoreal",
-        "student-day"
-      ],
-      "created": "2026-09-20"
-    },
-    {
-      "id": "ms-story-key",
-      "type": "image",
-      "source": "Higgsfield",
-      "model": "gpt_image_2_5",
-      "prompt": "cinematic photo, one continuous story of a student's day — box opened: brass key engraved Manage Smarter; same boy, green uniform",
-      "dimensions": "1280w (+640 sm)",
-      "duration": null,
-      "file": "assets/story/key.webp",
-      "used_in": [
-        "index.html #story"
-      ],
-      "tags": [
-        "story",
-        "photoreal",
-        "student-day",
+        "film",
+        "principal",
+        "box",
         "key",
-        "brand-engraved-in-code"
+        "men-only"
       ],
       "created": "2026-09-20"
     },
     {
-      "id": "ms-story-after",
-      "type": "image",
+      "id": "ms-film-shot2",
+      "type": "video",
       "source": "Higgsfield",
-      "model": "gpt_image_2_5",
-      "prompt": "cinematic photo, one continuous story of a student's day — calm organised corridor; same boy, green uniform",
-      "dimensions": "1280w (+640 sm)",
-      "duration": null,
-      "file": "assets/story/after.webp",
+      "model": "gpt_image_2_5 → seedance_2_0_mini (720p, 5s, silent)",
+      "prompt": "the principal's evening — principal alone in the empty corridor; men and boys only, per Maher's instruction",
+      "dimensions": "960w",
+      "duration": "5s",
+      "file": "assets/film/shot2.mp4 (+ .webm, .webp poster)",
       "used_in": [
-        "index.html #story"
+        "index.html film bands"
       ],
       "tags": [
-        "story",
-        "photoreal",
-        "student-day"
+        "film",
+        "principal",
+        "box",
+        "key",
+        "men-only"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-film-shot3",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5 → seedance_2_0_mini (720p, 5s, silent)",
+      "prompt": "the principal's evening — principal at a desk buried in paper, late evening; men and boys only, per Maher's instruction",
+      "dimensions": "960w",
+      "duration": "5s",
+      "file": "assets/film/shot3.mp4 (+ .webm, .webp poster)",
+      "used_in": [
+        "index.html film bands"
+      ],
+      "tags": [
+        "film",
+        "principal",
+        "box",
+        "key",
+        "men-only"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-film-shot4",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5 → seedance_2_0_mini (720p, 5s, silent)",
+      "prompt": "the principal's evening — he notices the green box; men and boys only, per Maher's instruction",
+      "dimensions": "960w",
+      "duration": "5s",
+      "file": "assets/film/shot4.mp4 (+ .webm, .webp poster)",
+      "used_in": [
+        "index.html film bands"
+      ],
+      "tags": [
+        "film",
+        "principal",
+        "box",
+        "key",
+        "men-only"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-film-shot5",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5 → seedance_2_0_mini (720p, 5s, silent)",
+      "prompt": "the principal's evening — the box opens: brass key (tag engraved in the poster frame); men and boys only, per Maher's instruction",
+      "dimensions": "960w",
+      "duration": "5s",
+      "file": "assets/film/shot5.mp4 (+ .webm, .webp poster)",
+      "used_in": [
+        "index.html film bands"
+      ],
+      "tags": [
+        "film",
+        "principal",
+        "box",
+        "key",
+        "men-only"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-film-shot6",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "gpt_image_2_5 → seedance_2_0_mini (720p, 5s, silent)",
+      "prompt": "the principal's evening — next morning, the school running calmly; men and boys only, per Maher's instruction",
+      "dimensions": "960w",
+      "duration": "5s",
+      "file": "assets/film/shot6.mp4 (+ .webm, .webp poster)",
+      "used_in": [
+        "index.html film bands"
+      ],
+      "tags": [
+        "film",
+        "principal",
+        "box",
+        "key",
+        "men-only"
       ],
       "created": "2026-09-20"
     }
   ],
-  "notes": "Videos: H.264 mp4 + VP9 webm; page picks webm when supported, lazy-loads on scroll, pauses off-screen, skipped on data-saver/reduced-motion. Generated during the Higgsfield MCP Plus trial (Sept 2026). Story frames: the key's brass tag was left blank by the model and engraved 'Manage Smarter' in a browser render (scratchpad/brand/engrave.html), so the wording stays editable."
+  "notes": "Videos: H.264 mp4 + VP9 webm; page picks webm when supported, lazy-loads on scroll, pauses off-screen, skipped on data-saver/reduced-motion. Generated during the Higgsfield MCP Plus trial (Sept 2026). Story frames: the key's brass tag was left blank by the model and engraved 'Manage Smarter' in a browser render (scratchpad/brand/engrave.html), so the wording stays editable. Film bands: three bands (after the hero, before the systems, before pricing), two shots each, played only while on screen; skipped on reduced-motion and data-saver. People in the film: men and boys only."
 }
