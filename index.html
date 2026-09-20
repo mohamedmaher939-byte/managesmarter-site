@@ -99,32 +99,42 @@ section{padding-block:clamp(54px,8vw,96px)}
 /* ---------- assembly ---------- */
 .stage{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px;
   box-shadow:0 30px 60px -50px rgba(18,67,58,.5)}
-.asm{width:100%;height:auto}
-.asm .t{transition:transform .95s cubic-bezier(.2,.9,.25,1);
-  transform-box:fill-box;transform-origin:center}
-.asm .fin{transition:opacity .5s ease .78s}
-.asm.loose .fin{opacity:0}
-.asm.loose .t1 {transform:translate(-96px,-52px) rotate(-19deg)}
-.asm.loose .t2 {transform:translate(74px,-64px)  rotate(13deg)}
-.asm.loose .t3 {transform:translate(-58px,62px)  rotate(11deg)}
-.asm.loose .t4 {transform:translate(88px,46px)   rotate(-14deg)}
-.asm.loose .t5 {transform:translate(-112px,18px) rotate(22deg)}
-.asm.loose .t6 {transform:translate(46px,80px)   rotate(-9deg)}
-.asm.loose .t7 {transform:translate(108px,-18px) rotate(16deg)}
-.asm.loose .t8 {transform:translate(-44px,-78px) rotate(-24deg)}
-.asm.loose .t9 {transform:translate(64px,68px)   rotate(18deg)}
-.asm.loose .t10{transform:translate(-86px,-14px) rotate(-13deg)}
-.asm.loose .t11{transform:translate(24px,-86px)  rotate(9deg)}
-.asm.loose .t12{transform:translate(-30px,88px)  rotate(-20deg)}
-.asm.loose .t13{transform:translate(118px,34px)  rotate(24deg)}
-.asm.loose .t14{transform:translate(-120px,-40px) rotate(15deg)}
-.asm .t1{transition-delay:.03s}  .asm .t2{transition-delay:.08s}
-.asm .t3{transition-delay:.13s}  .asm .t4{transition-delay:.18s}
-.asm .t5{transition-delay:.23s}  .asm .t6{transition-delay:.28s}
-.asm .t7{transition-delay:.33s}  .asm .t8{transition-delay:.38s}
-.asm .t9{transition-delay:.43s}  .asm .t10{transition-delay:.48s}
-.asm .t11{transition-delay:.53s} .asm .t12{transition-delay:.58s}
-.asm .t13{transition-delay:.63s} .asm .t14{transition-delay:.68s}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.orb{position:relative;width:100%;aspect-ratio:1/.86;touch-action:pan-y;user-select:none;-webkit-user-select:none;
+  background:radial-gradient(circle at 50% 50%,#F4F7F3 0,#fff 62%);border-radius:14px;overflow:hidden;cursor:grab}
+.orb-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.orb-lines line{stroke:#BFD3CB;stroke-width:1.4;transition:opacity .6s}
+.orb-lines line.on{stroke:var(--amber);stroke-width:2;stroke-dasharray:5 6;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-22}}
+.orb.chaos .orb-lines{opacity:0}
+.orb-lines{transition:opacity .8s}
+.core{position:absolute;left:50%;top:50%;z-index:6;width:23%;aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%);display:grid;place-content:center;justify-items:center;gap:4px;
+  background:radial-gradient(circle at 35% 30%,#3E8C7A,#12433A);color:#fff;
+  box-shadow:0 0 0 8px rgba(46,107,94,.08),0 18px 40px -18px rgba(18,67,58,.7);transition:transform .9s cubic-bezier(.2,.9,.25,1),opacity .6s}
+.core svg{width:34%;height:auto}
+.core b{font:600 clamp(8px,1.3vw,11px) "Rubik",sans-serif;letter-spacing:.01em;white-space:nowrap}
+.core::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1.5px solid rgba(46,107,94,.35);animation:ring 2.6s ease-out infinite}
+@keyframes ring{from{transform:scale(.92);opacity:1}to{transform:scale(1.35);opacity:0}}
+.orb.chaos .core{transform:translate(-50%,-50%) scale(.55);opacity:.35}
+.orb.chaos .core::after{animation:none}
+.nd{position:absolute;left:0;top:0;display:flex;align-items:center;gap:7px;padding:5px 11px 5px 5px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;white-space:nowrap;
+  font:500 clamp(11px,1.5vw,13px) "Rubik","Tajawal",sans-serif;color:var(--ink);
+  box-shadow:0 6px 16px -10px rgba(18,67,58,.45);will-change:transform;cursor:pointer;transition:border-color .3s,box-shadow .3s,background .3s}
+[dir=rtl] .nd{padding:5px 5px 5px 11px}
+.nd i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--pine);flex:none}
+.nd i svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.orb.chaos .nd{background:#FBF7F0;border-style:dashed;border-color:#D9C7A8;color:var(--muted)}
+.orb.chaos .nd i{background:#C9B79A}
+.nd.hot{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-soft),0 8px 20px -10px rgba(192,132,52,.7)}
+.nd.hot i{background:var(--amber)}
+.dot{position:absolute;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;z-index:12;
+  background:var(--amber);box-shadow:0 0 0 4px rgba(192,132,52,.25);opacity:0;transition:opacity .4s;pointer-events:none}
+.orb.live .dot{opacity:1}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;min-height:38px}
+.bar span{font-size:14.5px;color:var(--ink);font-weight:500;line-height:1.45}
+@media(max-width:520px){.nd{gap:5px;padding:3px 8px 3px 3px}[dir=rtl] .nd{padding:3px 3px 3px 8px}.nd i{width:21px;height:21px}.nd i svg{width:12px;height:12px}}
 .stage .bar{display:flex;align-items:center;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
 .stage .bar span{font-size:14px;color:var(--muted);flex:1}
 
@@ -418,58 +428,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
     </div>
 
     <div class="stage">
-      <svg class="asm loose" viewBox="0 0 460 344" role="img" aria-labelledby="asmT">
-        <title id="asmT">قطع متفرقة تتجمّع حتى تصير مبنى مدرسة واحدًا</title>
-
-        <g class="t t3"><path d="M60 308h85v-58H60z"   fill="#2E6B5E"/></g>
-        <g class="t t9"><path d="M145 308h85v-58h-85z" fill="#245C50"/></g>
-        <g class="t t6"><path d="M230 308h85v-58h-85z" fill="#245C50"/></g>
-        <g class="t t12"><path d="M315 308h85v-58h-85z" fill="#2E6B5E"/></g>
-
-        <g class="t t5"><path d="M60 250h85v-60H60z"   fill="#3E8C7A"/></g>
-        <g class="t t4"><path d="M145 250h85v-60h-85z" fill="#2E6B5E"/></g>
-        <g class="t t13"><path d="M230 250h85v-60h-85z" fill="#2E6B5E"/></g>
-        <g class="t t7"><path d="M315 250h85v-60h-85z" fill="#3E8C7A"/></g>
-
-        <g class="t t10"><path d="M58 190h172v-16H58z"  fill="#12433A"/></g>
-        <g class="t t2"><path d="M230 190h172v-16H230z" fill="#12433A"/></g>
-
-        <g class="t t1"><path d="M230 174 46 174 230 104z" fill="#C08434"/></g>
-        <g class="t t8"><path d="M230 174 414 174 230 104z" fill="#A86F27"/></g>
-        <g class="t t14"><path d="M206 104h48V62h-48z" fill="#3E8C7A"/></g>
-        <g class="t t11">
-          <circle cx="230" cy="46" r="15" fill="#C08434"/>
-          <path d="M230 31V14h26l-8 7 8 7h-26" fill="#245C50"/>
-        </g>
-
-        <g class="fin">
-          <rect x="211" y="258" width="38" height="50" rx="19" fill="#EDF0EC"/>
-          <path d="M230 268v40" stroke="#C7D2CB" stroke-width="2"/>
-          <g fill="#EDF0EC" opacity=".85">
-            <rect x="80"  y="266" width="26" height="26" rx="4"/>
-            <rect x="116" y="266" width="26" height="26" rx="4"/>
-            <rect x="164" y="266" width="26" height="26" rx="4"/>
-            <rect x="270" y="266" width="26" height="26" rx="4"/>
-            <rect x="318" y="266" width="26" height="26" rx="4"/>
-            <rect x="354" y="266" width="26" height="26" rx="4"/>
-          </g>
-          <g fill="#EDF0EC" opacity=".7">
-            <rect x="80"  y="206" width="26" height="24" rx="4"/>
-            <rect x="116" y="206" width="26" height="24" rx="4"/>
-            <rect x="164" y="206" width="26" height="24" rx="4"/>
-            <rect x="206" y="206" width="26" height="24" rx="4"/>
-            <rect x="248" y="206" width="26" height="24" rx="4"/>
-            <rect x="290" y="206" width="26" height="24" rx="4"/>
-            <rect x="336" y="206" width="26" height="24" rx="4"/>
-          </g>
-          <circle cx="230" cy="46" r="5" fill="#12433A"/>
-          <path d="M196 318h68l-10-10h-48z" fill="#D7DED8"/>
-          <path d="M36 320h388" stroke="#D7DED8" stroke-width="3" stroke-linecap="round"/>
-        </g>
-      </svg>
+      <div class="orb chaos" id="orb" role="img" aria-labelledby="orbT">
+        <span class="sr" id="orbT" data-i="orb_alt"></span>
+        <svg class="orb-lines" aria-hidden="true"></svg>
+        <div class="core" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><rect x="2" y="2" width="13" height="13" rx="3" fill="#fff"/><rect x="17" y="2" width="13" height="13" rx="3" fill="#CFE3DC"/><rect x="2" y="17" width="13" height="13" rx="3" fill="#CFE3DC"/><rect x="17.8" y="17.8" width="13" height="13" rx="3" fill="#E7B36A" transform="rotate(-9 24.3 24.3)"/></svg>
+          <b>Manage Smarter</b>
+        </div>
+        <i class="dot" aria-hidden="true"></i>
+      </div>
       <div class="bar">
-        <span data-i="asm_state"></span>
-        <button class="btn sm ghost" id="asmBtn" data-i="asm_btn"></button>
+        <span data-i="asm_state" id="orbCap" aria-live="polite"></span>
+        <button class="btn sm ghost" id="asmBtn"></button>
       </div>
     </div>
   </div>
@@ -885,9 +855,14 @@ cta_sys:["شاهد الأنظمة","See the systems","Sistemleri görün"],
 hnote:["تعمل بالعربية والتركية والإنجليزية · على الموبايل والكمبيوتر",
        "Works in Arabic, Turkish and English · on phone and desktop",
        "Arapça, Türkçe ve İngilizce · telefon ve bilgisayarda"],
-asm_state:["اضغط لترى الفرق","Press to see the difference","Farkı görmek için basın"],
-asm_btn:["جمّع","Assemble","Birleştir"],
-asm_btn2:["بعثِر","Scatter","Dağıt"],
+asm_state:["بيانات مدرستك مبعثرة في كل مكان","Your school's data is scattered everywhere","Okulunuzun verileri her yere dağılmış"],
+orb_alt:["عناصر المدرسة المبعثرة — الطلاب والمعلمون والإدارة والملفات — تتجمع حول Manage Smarter في نظام واحد مترابط","Scattered school pieces — students, teachers, offices, files — come together around Manage Smarter as one connected system","Dağınık okul parçaları — öğrenciler, öğretmenler, idare, dosyalar — Manage Smarter etrafında tek bir sistemde birleşir"],
+orb_n:{st:["الطلاب","Students","Öğrenciler"],te:["المعلمون","Teachers","Öğretmenler"],of:["الإدارة","Office","İdare"],dp:["الأقسام","Departments","Bölümler"],dc:["الملفات","Files","Dosyalar"],at:["الحضور","Attendance","Yoklama"],ca:["التقويم","Calendar","Takvim"],ds:["الانضباط","Discipline","Disiplin"]},
+orb_f:[["ملف الطالب يصل إلى المكتب المختص فورًا","A student's file reaches the right office instantly","Öğrenci dosyası anında doğru ofise ulaşır"],
+       ["المعلم يسجّل، والقسم يرى الصورة كاملة","Teachers record it, the department sees the full picture","Öğretmen kaydeder, bölüm tüm resmi görür"],
+       ["الإدارة ترى التقويم والانضباط في شاشة واحدة","Leadership sees calendar and discipline on one screen","Yönetim takvimi ve disiplini tek ekranda görür"]],
+asm_btn:["نظّمها","Organize it","Düzenle"],
+asm_btn2:["أعِد الفوضى","Scatter again","Tekrar dağıt"],
 
 ch_h:["الفوضى لا تظهر في يوم واحد","Disorder never arrives in one day","Dağınıklık bir günde oluşmaz"],
 ch_sub:["تتراكم ملفًا بعد ملف، حتى تصبح الإدارة عملًا كاملًا بجانب العمل.",
@@ -1021,14 +996,12 @@ function paint(){
     if(e.dataset.i==="h1"){e.innerHTML=v[LI].split("\n").map(x=>`<span style="display:block">${x}</span>`).join("");}
   });
   $$(".langs button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.l===L[LI]));
-  const a=$(".asm"), btn=$("#asmBtn");
-  btn.textContent = a.classList.contains("loose") ? D.asm_btn[LI] : D.asm_btn2[LI];
+  if(window.ORB) ORB.paint();
   document.title = LI===0 ? "Manage Smarter — إدارة مدرسية في مكان واحد"
     : LI===1 ? "Manage Smarter — school operations in one place"
     : "Manage Smarter — okul yönetimi tek yerde";
 }
 $$(".langs button").forEach(b=>b.onclick=()=>{LI=L.indexOf(b.dataset.l);paint();});
-$("#asmBtn").onclick=()=>{$(".asm").classList.toggle("loose");paint();};
 $("#yr").textContent=new Date().getFullYear();
 paint();
 
@@ -1047,12 +1020,118 @@ function cycle(){clearInterval(timer);timer=setInterval(()=>showPane((pi+1)%pane
 tabs.forEach((b,n)=>b.onclick=()=>{showPane(n);cycle();});
 if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){showPane(0);cycle();}
 
-/* one orchestrated moment: the pieces settle once, shortly after load */
-const asm=$(".asm");
-const settle=()=>{asm.classList.remove("loose");paint();};
-if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-  setTimeout(settle,900);
-}else{ settle(); }
+/* hero: scattered school data -> one organized system.
+   Plain DOM + one small SVG. The animation loop runs only while the scene is visible. */
+window.ORB=(()=>{
+  const el=$("#orb"), svg=el.querySelector(".orb-lines"), dot=el.querySelector(".dot"),
+        cap=$("#orbCap"), btn=$("#asmBtn");
+  const RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const IC={
+    st:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/>',
+    te:'<circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M15 4h6v7h-4"/>',
+    of:'<path d="M4 21V5l8-3 8 3v16"/><path d="M9 21v-5h6v5M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/>',
+    dp:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    dc:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+    at:'<path d="M4 6l2 2 3-3M4 13l2 2 3-3M4 20h.01"/><path d="M12 7h8M12 14h8M12 20h8"/>',
+    ca:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    ds:'<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>'
+  };
+  const K=["st","te","of","dp","dc","at","ca","ds"];
+  // hand-placed "mess": x,y as share of the stage, rotation in degrees
+  const MESS=[[.16,.18,-14],[.78,.14,11],[.30,.80,9],[.84,.66,-12],[.52,.30,17],[.12,.56,-8],[.64,.86,-17],[.46,.62,6]];
+  const FLOWS=[["st","dc","of"],["te","at","dp"],["of","ca","ds"]];
+  const N=K.map((k,i)=>{
+    const n=document.createElement("div");n.className="nd";n.dataset.k=k;
+    n.innerHTML=`<i><svg viewBox="0 0 24 24">${IC[k]}</svg></i><span></span>`;
+    el.appendChild(n);
+    const ln=document.createElementNS("http://www.w3.org/2000/svg","line");svg.appendChild(ln);
+    return {k,n,ln,i,p:0,x:0,y:0,base:i/K.length*Math.PI*2};
+  });
+  let W=0,H=0,org=false,t0=performance.now(),spin=0,vel=.00016,tilt=.36,tiltT=.36,
+      flow=0,flowAt=0,hold=0,run=false,seen=false,drag=null;
+
+  const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+  function size(){W=el.clientWidth;H=el.clientHeight;svg.setAttribute("viewBox",`0 0 ${W} ${H}`);}
+  function pos(o,now){
+    const mw=o.n.offsetWidth,mh=o.n.offsetHeight;
+    const m=MESS[o.i], wob=Math.sin(now/900+o.i*1.7);
+    const cx=m[0]*W+wob*4, cy=m[1]*H+Math.cos(now/1100+o.i)*4, cr=m[2]+wob*2;
+    const a=o.base+spin, R=Math.min(W*.4,H*.7);
+    const rx=W/2+Math.cos(a)*R, ry=H/2+Math.sin(a)*R*(tilt*1.25+.12);
+    const d=(Math.sin(a)+1)/2, sc=.84+.2*d;
+    const e=ease(o.p);
+    o.x=cx+(rx-cx)*e; o.y=cy+(ry-cy)*e;
+    o.x=Math.max(mw/2+4,Math.min(W-mw/2-4,o.x)); o.y=Math.max(mh/2+4,Math.min(H-mh/2-4,o.y));
+    const r=cr*(1-e), s=1+(sc-1)*e;
+    o.n.style.transform=`translate(${o.x-mw/2}px,${o.y-mh/2}px) rotate(${r}deg) scale(${s})`;
+    o.n.style.zIndex=org&&e>.5?(d>.5?8:4):3;
+    o.n.style.opacity=(1-e)*.92+e*(.62+.38*d);
+    o.ln.setAttribute("x1",W/2);o.ln.setAttribute("y1",H/2);
+    o.ln.setAttribute("x2",o.x);o.ln.setAttribute("y2",o.y);
+  }
+  function setFlow(f){
+    flow=f;const F=FLOWS[f];
+    N.forEach(o=>{const on=org&&F.includes(o.k);o.n.classList.toggle("hot",on);o.ln.classList.toggle("on",on);});
+    paint();
+  }
+  // dot travels: first -> core -> second -> core -> third
+  function dotAt(now){
+    const F=FLOWS[flow].map(k=>N.find(o=>o.k===k)), C={x:W/2,y:H/2};
+    const path=[F[0],C,F[1],C,F[2]], u=((now-flowAt)/2600)%1*4, seg=Math.floor(u), f=u-seg;
+    const A=path[seg],B=path[seg+1];
+    dot.style.transform=`translate(${A.x+(B.x-A.x)*f}px,${A.y+(B.y-A.y)*f}px)`;
+  }
+  function frame(now){
+    if(!run) return;
+    const dt=Math.min(now-(frame.last||now),50);frame.last=now;
+    if(!drag) spin+=vel*dt*(hold>now?.25:1);
+    vel+=(.00016-vel)*.02;
+    tilt+=(tiltT-tilt)*.08;
+    N.forEach(o=>{const target=org?1:0, k=org?Math.max(0,(now-t0)/1300-o.i*.06):(now-t0)/900;
+      o.p=org?Math.min(1,Math.max(o.p,k)):Math.max(0,Math.min(o.p,1-k));pos(o,now);});
+    if(org&&now>flowAt+7800&&hold<now){flowAt=now;setFlow((flow+1)%FLOWS.length);}
+    if(org&&N[N.length-1].p>=1) {el.classList.add("live");dotAt(now);} else el.classList.remove("live");
+    requestAnimationFrame(frame);
+  }
+  function start(){if(run||RM) return;run=true;frame.last=0;requestAnimationFrame(frame);}
+  function stop(){run=false;}
+  function set(o){
+    org=o;t0=performance.now();flowAt=t0;el.classList.toggle("chaos",!org);
+    if(RM){N.forEach(x=>{x.p=org?1:0;pos(x,0);});}
+    setFlow(0);start();
+  }
+  function paint(){
+    N.forEach(o=>o.n.querySelector("span").textContent=D.orb_n[o.k][LI]);
+    cap.textContent=org?D.orb_f[flow][LI]:D.asm_state[LI];
+    btn.textContent=org?D.asm_btn2[LI]:D.asm_btn[LI];
+    if(RM) N.forEach(o=>pos(o,0));
+  }
+  btn.onclick=()=>set(!org);
+  N.forEach(o=>o.n.addEventListener("click",e=>{
+    e.stopPropagation(); if(!org){set(true);return;}
+    const f=FLOWS.findIndex(F=>F[0]===o.k)>=0?FLOWS.findIndex(F=>F[0]===o.k):FLOWS.findIndex(F=>F.includes(o.k));
+    hold=performance.now()+9000;flowAt=performance.now();setFlow(f);
+  }));
+  // pointer: tilt the orbit with the mouse, spin it with a drag or swipe
+  el.addEventListener("pointermove",e=>{
+    const r=el.getBoundingClientRect();
+    if(e.pointerType==="mouse") tiltT=.22+.3*((e.clientY-r.top)/r.height);
+    if(drag){const dx=e.clientX-drag.x;drag.x=e.clientX;spin+=dx/r.width*2.4;vel=dx/r.width*.02;}
+  });
+  el.addEventListener("pointerdown",e=>{if(org&&!e.target.closest(".nd")) drag={x:e.clientX};});
+  addEventListener("pointerup",()=>drag=null);
+  el.addEventListener("pointerleave",()=>{tiltT=.36;});
+  new ResizeObserver(()=>{size();if(!run) N.forEach(o=>pos(o,performance.now()));}).observe(el);
+  new IntersectionObserver(es=>es.forEach(x=>{
+    if(x.isIntersecting){start(); if(!seen){seen=true; setTimeout(()=>{if(!org) set(true);},RM?0:1100);}}
+    else stop();
+  }),{threshold:.2}).observe(el);
+  document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
+  size(); N.forEach(o=>pos(o,0));
+  return {paint};
+})();
+ORB.paint();
+
 </script>
 </body>
 </html>

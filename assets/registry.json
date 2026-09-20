@@ -1,0 +1,19 @@
+{
+  "about": "Manage Smarter visual asset registry. Check here before generating anything new; add every new asset here.",
+  "fields": ["id","type","source","prompt","model","dimensions","duration","file","used_in","tags","created"],
+  "assets": [
+    {
+      "id": "hero-orbit-v1",
+      "type": "code-scene",
+      "source": "code (DOM + SVG, no library)",
+      "prompt": null,
+      "model": null,
+      "dimensions": "responsive, 1:0.86",
+      "duration": "loop",
+      "file": "index.html#orb",
+      "used_in": ["index.html hero"],
+      "tags": ["hero","chaos-to-order","orbit","students","teachers","office","files","attendance","calendar","discipline"],
+      "created": "2026-09-20"
+    }
+  ]
+}
