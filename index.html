@@ -151,6 +151,14 @@ section{padding-block:clamp(54px,8vw,96px)}
 @keyframes talk{0%,5%{opacity:0;transform:translateY(6px) scale(.9)}10%,42%{opacity:1;transform:none}48%,100%{opacity:0;transform:translateY(-4px)}}
 @keyframes dots{50%{transform:translateY(-3px);opacity:.5}}
 @media(prefers-reduced-motion:reduce){.ph img,.scr i,.bub{animation:none}.bub{opacity:1}}
+
+/* real video loops, loaded only when visible */
+.ph .sv,.campus .sv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s;border-radius:inherit}
+.campus .fl{position:relative}
+.sv.on{opacity:1}
+.ph:has(.sv.on) img,.campus .fl:has(.sv.on) img{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.sv{display:none}}
+
 /* reveal from depth */
 .rv{opacity:0;transform:perspective(900px) translateY(46px) rotateX(16deg);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.9,.25,1)}
 .rv.on{opacity:1;transform:none}
@@ -511,26 +519,27 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
     <p class="rv" data-i="w_sub"></p>
     <div class="campus rv"><div class="fl" id="campus">
       <img src="/assets/img/ms-campus-photo-v1.webp" width="1600" height="900" decoding="async" data-alt="w_h" alt="">
+      <video class="sv" muted loop playsinline preload="none" aria-hidden="true" data-src="/assets/video/ms-campus-v1.mp4" poster="/assets/img/ms-campus-photo-v1.webp"></video>
     </div></div>
     <div class="scns">
       <figure class="scn rv"><div class="in">
-        <div class="ph kb-students"><img src="/assets/img/ms-students-photo-v1-sm.webp" srcset="/assets/img/ms-students-photo-v1-sm.webp 600w, /assets/img/ms-students-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="ws_t" alt=""></div>
+        <div class="ph kb-students"><img src="/assets/img/ms-students-photo-v1-sm.webp" srcset="/assets/img/ms-students-photo-v1-sm.webp 600w, /assets/img/ms-students-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="ws_t" alt=""><video class="sv" muted loop playsinline preload="none" aria-hidden="true" data-src="/assets/video/ms-students-v1.mp4" poster="/assets/img/ms-students-photo-v1-sm.webp"></video></div>
         <figcaption><b data-i="ws_t"></b><span data-i="ws_p"></span></figcaption>
       </div></figure>
       <figure class="scn rv"><div class="in">
-        <div class="ph kb-teacher"><img src="/assets/img/ms-teacher-photo-v1-sm.webp" srcset="/assets/img/ms-teacher-photo-v1-sm.webp 600w, /assets/img/ms-teacher-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wt_t" alt=""></div>
+        <div class="ph kb-teacher"><img src="/assets/img/ms-teacher-photo-v1-sm.webp" srcset="/assets/img/ms-teacher-photo-v1-sm.webp 600w, /assets/img/ms-teacher-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wt_t" alt=""><video class="sv" muted loop playsinline preload="none" aria-hidden="true" data-src="/assets/video/ms-teacher-v1.mp4" poster="/assets/img/ms-teacher-photo-v1-sm.webp"></video></div>
         <figcaption><b data-i="wt_t"></b><span data-i="wt_p"></span></figcaption>
       </div></figure>
       <figure class="scn rv"><div class="in">
-        <div class="ph kb-activities"><img src="/assets/img/ms-activities-photo-v1-sm.webp" srcset="/assets/img/ms-activities-photo-v1-sm.webp 600w, /assets/img/ms-activities-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wa_t" alt=""></div>
+        <div class="ph kb-activities"><img src="/assets/img/ms-activities-photo-v1-sm.webp" srcset="/assets/img/ms-activities-photo-v1-sm.webp 600w, /assets/img/ms-activities-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wa_t" alt=""><video class="sv" muted loop playsinline preload="none" aria-hidden="true" data-src="/assets/video/ms-activities-v1.mp4" poster="/assets/img/ms-activities-photo-v1-sm.webp"></video></div>
         <figcaption><b data-i="wa_t"></b><span data-i="wa_p"></span></figcaption>
       </div></figure>
       <figure class="scn rv"><div class="in">
-        <div class="ph kb-guidance"><img src="/assets/img/ms-guidance-photo-v1-sm.webp" srcset="/assets/img/ms-guidance-photo-v1-sm.webp 600w, /assets/img/ms-guidance-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wg_t" alt=""><div class="bub b1" aria-hidden="true"><i></i><i></i><i></i></div><div class="bub b2" aria-hidden="true"><i></i><i></i><i></i></div></div>
+        <div class="ph kb-guidance"><img src="/assets/img/ms-guidance-photo-v1-sm.webp" srcset="/assets/img/ms-guidance-photo-v1-sm.webp 600w, /assets/img/ms-guidance-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wg_t" alt=""><video class="sv" muted loop playsinline preload="none" aria-hidden="true" data-src="/assets/video/ms-guidance-v1.mp4" poster="/assets/img/ms-guidance-photo-v1-sm.webp"></video></div>
         <figcaption><b data-i="wg_t"></b><span data-i="wg_p"></span></figcaption>
       </div></figure>
       <figure class="scn rv"><div class="in">
-        <div class="ph kb-office"><img src="/assets/img/ms-office-photo-v1-sm.webp" srcset="/assets/img/ms-office-photo-v1-sm.webp 600w, /assets/img/ms-office-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wo_t" alt=""><div class="scr" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="ph kb-office"><img src="/assets/img/ms-office-photo-v1-sm.webp" srcset="/assets/img/ms-office-photo-v1-sm.webp 600w, /assets/img/ms-office-photo-v1.webp 1200w" sizes="(max-width:700px) 50vw, 360px" width="1200" height="900" loading="lazy" decoding="async" data-alt="wo_t" alt=""><video class="sv" muted loop playsinline preload="none" aria-hidden="true" data-src="/assets/video/ms-office-v1.mp4" poster="/assets/img/ms-office-photo-v1-sm.webp"></video></div>
         <figcaption><b data-i="wo_t"></b><span data-i="wo_p"></span></figcaption>
       </div></figure>
       <a class="scn rv cta-card" href="https://app.managesmarter.app/?demo=1" target="_blank" rel="noopener"><div class="in">
@@ -1282,6 +1291,30 @@ ORB.paint();
   });
 })();
 
+
+/* play the scene videos only while on screen; skip on data-saver or reduced motion */
+(()=>{
+  const vs=$$("video.sv"); if(!vs.length) return;
+  const save=navigator.connection&&navigator.connection.saveData;
+  if(save||window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const io=new IntersectionObserver(es=>es.forEach(x=>{const v=x.target;
+    if(x.isIntersecting){ if(!v.src){const wb=v.canPlayType('video/webm; codecs="vp9"');v.src=wb?v.dataset.src.replace(".mp4",".webm"):v.dataset.src;v.addEventListener("playing",()=>v.classList.add("on"),{once:true});}
+      v.play().catch(()=>{}); } else v.pause();
+  }),{threshold:.25});
+  vs.forEach(v=>io.observe(v));
+})();
+
+/* play the scene videos only while on screen; skip on data-saver or reduced motion */
+(()=>{
+  const vs=$$("video.lv"); if(!vs.length) return;
+  const save=navigator.connection&&navigator.connection.saveData;
+  if(save||window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const io=new IntersectionObserver(es=>es.forEach(x=>{const v=x.target;
+    if(x.isIntersecting){ if(!v.src){const wb=v.canPlayType('video/webm; codecs="vp9"');v.src=wb?v.dataset.src.replace(".mp4",".webm"):v.dataset.src;v.addEventListener("playing",()=>v.classList.add("on"),{once:true});}
+      v.play().catch(()=>{}); } else v.pause();
+  }),{threshold:.25});
+  vs.forEach(v=>io.observe(v));
+})();
 </script>
 </body>
 </html>

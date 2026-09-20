@@ -275,7 +275,127 @@
         "living-photo"
       ],
       "created": "2026-09-20"
+    },
+    {
+      "id": "ms-campus-video-v1",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "seedance_2_0_mini (720p, 5s, no audio)",
+      "prompt": "image-to-video from ms-campus-photo-v1 (job 7bbc4409)",
+      "dimensions": "1280w",
+      "duration": "5s loop",
+      "file": "assets/video/ms-campus-v1.mp4 (+ .webm)",
+      "used_in": [
+        "index.html #world"
+      ],
+      "tags": [
+        "campus",
+        "photoreal",
+        "loop",
+        "video"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-students-video-v1",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "seedance_2_0_mini (720p, 5s, no audio)",
+      "prompt": "image-to-video from ms-students-photo-v1 (job 18c36655)",
+      "dimensions": "800w",
+      "duration": "5s loop",
+      "file": "assets/video/ms-students-v1.mp4 (+ .webm)",
+      "used_in": [
+        "index.html #world"
+      ],
+      "tags": [
+        "students",
+        "photoreal",
+        "loop",
+        "video"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-teacher-video-v1",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "seedance_2_0_mini (720p, 5s, no audio)",
+      "prompt": "image-to-video from ms-teacher-photo-v1 (job d7cf3874)",
+      "dimensions": "800w",
+      "duration": "5s loop",
+      "file": "assets/video/ms-teacher-v1.mp4 (+ .webm)",
+      "used_in": [
+        "index.html #world"
+      ],
+      "tags": [
+        "teacher",
+        "photoreal",
+        "loop",
+        "video"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-office-video-v1",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "seedance_2_0_mini (720p, 5s, no audio)",
+      "prompt": "image-to-video from ms-office-photo-v1 (job 5ad0deed)",
+      "dimensions": "800w",
+      "duration": "5s loop",
+      "file": "assets/video/ms-office-v1.mp4 (+ .webm)",
+      "used_in": [
+        "index.html #world"
+      ],
+      "tags": [
+        "office",
+        "photoreal",
+        "loop",
+        "video"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-activities-video-v1",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "seedance_2_0_mini (720p, 5s, no audio)",
+      "prompt": "image-to-video from ms-activities-photo-v1 (job a0e59e80)",
+      "dimensions": "800w",
+      "duration": "5s loop",
+      "file": "assets/video/ms-activities-v1.mp4 (+ .webm)",
+      "used_in": [
+        "index.html #world"
+      ],
+      "tags": [
+        "activities",
+        "photoreal",
+        "loop",
+        "video"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-guidance-video-v1",
+      "type": "video",
+      "source": "Higgsfield",
+      "model": "seedance_2_0_mini (720p, 5s, no audio)",
+      "prompt": "image-to-video from ms-guidance-photo-v1 (job cba140f2)",
+      "dimensions": "800w",
+      "duration": "5s loop",
+      "file": "assets/video/ms-guidance-v1.mp4 (+ .webm)",
+      "used_in": [
+        "index.html #world"
+      ],
+      "tags": [
+        "guidance",
+        "photoreal",
+        "loop",
+        "video"
+      ],
+      "created": "2026-09-20"
     }
   ],
-  "notes": "Image-to-video on Higgsfield needs Basic plan or higher (free plan rejected, Sept 2026). Motion on photos is CSS (slow camera moves, monitor highlights, speech bubbles)."
+  "notes": "Videos: H.264 mp4 + VP9 webm; page picks webm when supported, lazy-loads on scroll, pauses off-screen, skipped on data-saver/reduced-motion. Generated during the Higgsfield MCP Plus trial (Sept 2026)."
 }
