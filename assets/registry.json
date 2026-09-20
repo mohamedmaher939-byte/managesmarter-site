@@ -46,9 +46,7 @@
       "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 16:9",
       "dimensions": "1600x900 (+800 sm)",
       "file": "assets/img/ms-campus-v1.webp",
-      "used_in": [
-        "index.html #world campus"
-      ],
+      "used_in": [],
       "tags": [
         "campus",
         "diorama",
@@ -56,7 +54,8 @@
         "school",
         "3d-style",
         "hero-alt",
-        "3d-clay-style"
+        "3d-clay-style",
+        "alt-style-not-in-use"
       ],
       "source": "Higgsfield",
       "model": "z_image",
@@ -69,15 +68,14 @@
       "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
       "dimensions": "1200x900 (+600 sm)",
       "file": "assets/img/ms-students-v1.webp",
-      "used_in": [
-        "index.html #world card"
-      ],
+      "used_in": [],
       "tags": [
         "students",
         "corridor",
         "hijab",
         "uniform",
-        "3d-clay-style"
+        "3d-clay-style",
+        "alt-style-not-in-use"
       ],
       "source": "Higgsfield",
       "model": "z_image",
@@ -90,15 +88,14 @@
       "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
       "dimensions": "1200x900 (+600 sm)",
       "file": "assets/img/ms-teacher-v1.webp",
-      "used_in": [
-        "index.html #world card"
-      ],
+      "used_in": [],
       "tags": [
         "teacher",
         "classroom",
         "tablet",
         "tasks",
-        "3d-clay-style"
+        "3d-clay-style",
+        "alt-style-not-in-use"
       ],
       "source": "Higgsfield",
       "model": "z_image",
@@ -111,15 +108,14 @@
       "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
       "dimensions": "1200x900 (+600 sm)",
       "file": "assets/img/ms-activities-v1.webp",
-      "used_in": [
-        "index.html #world card"
-      ],
+      "used_in": [],
       "tags": [
         "activities",
         "courtyard",
         "science-fair",
         "calendar",
-        "3d-clay-style"
+        "3d-clay-style",
+        "alt-style-not-in-use"
       ],
       "source": "Higgsfield",
       "model": "z_image",
@@ -132,15 +128,14 @@
       "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
       "dimensions": "1200x900 (+600 sm)",
       "file": "assets/img/ms-guidance-v1.webp",
-      "used_in": [
-        "index.html #world card"
-      ],
+      "used_in": [],
       "tags": [
         "guidance",
         "counselor",
         "discipline",
         "student",
-        "3d-clay-style"
+        "3d-clay-style",
+        "alt-style-not-in-use"
       ],
       "source": "Higgsfield",
       "model": "z_image",
@@ -153,20 +148,134 @@
       "prompt": "see Higgsfield job history; style: stylized 3D animated clay render, pine/off-white/amber palette, 4:3",
       "dimensions": "1200x900 (+600 sm)",
       "file": "assets/img/ms-office-v1.webp",
-      "used_in": [
-        "index.html #world card"
-      ],
+      "used_in": [],
       "tags": [
         "office",
         "administrator",
         "dashboard",
         "leadership",
-        "3d-clay-style"
+        "3d-clay-style",
+        "alt-style-not-in-use"
       ],
       "source": "Higgsfield",
       "model": "z_image",
       "duration": null,
       "created": "2026-09-20"
+    },
+    {
+      "id": "ms-campus-photo-v1",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "z_image",
+      "prompt": "cinematic documentary photo, photorealistic, pine/off-white/amber palette (job 2ba91da1)",
+      "dimensions": "1600x900 (+800 sm)",
+      "duration": null,
+      "file": "assets/img/ms-campus-photo-v1.webp",
+      "used_in": [
+        "index.html #world campus"
+      ],
+      "tags": [
+        "campus",
+        "photoreal",
+        "living-photo"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-students-photo-v1",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "z_image",
+      "prompt": "cinematic documentary photo, photorealistic, pine/off-white/amber palette (job 31093cde)",
+      "dimensions": "1200x900 (+600 sm)",
+      "duration": null,
+      "file": "assets/img/ms-students-photo-v1.webp",
+      "used_in": [
+        "index.html #world card, CSS living-photo motion"
+      ],
+      "tags": [
+        "students",
+        "photoreal",
+        "living-photo"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-teacher-photo-v1",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "z_image",
+      "prompt": "cinematic documentary photo, photorealistic, pine/off-white/amber palette (job 68ccbbae)",
+      "dimensions": "1200x900 (+600 sm)",
+      "duration": null,
+      "file": "assets/img/ms-teacher-photo-v1.webp",
+      "used_in": [
+        "index.html #world card, CSS living-photo motion"
+      ],
+      "tags": [
+        "teacher",
+        "photoreal",
+        "living-photo"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-office-photo-v1",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "z_image",
+      "prompt": "cinematic documentary photo, photorealistic, pine/off-white/amber palette (job a92f6455)",
+      "dimensions": "1200x900 (+600 sm)",
+      "duration": null,
+      "file": "assets/img/ms-office-photo-v1.webp",
+      "used_in": [
+        "index.html #world card, CSS living-photo motion"
+      ],
+      "tags": [
+        "office",
+        "photoreal",
+        "living-photo"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-activities-photo-v1",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "z_image",
+      "prompt": "cinematic documentary photo, photorealistic, pine/off-white/amber palette (job 167c3939)",
+      "dimensions": "1200x900 (+600 sm)",
+      "duration": null,
+      "file": "assets/img/ms-activities-photo-v1.webp",
+      "used_in": [
+        "index.html #world card, CSS living-photo motion"
+      ],
+      "tags": [
+        "activities",
+        "photoreal",
+        "living-photo"
+      ],
+      "created": "2026-09-20"
+    },
+    {
+      "id": "ms-guidance-photo-v1",
+      "type": "image",
+      "source": "Higgsfield",
+      "model": "z_image",
+      "prompt": "cinematic documentary photo, photorealistic, pine/off-white/amber palette (job b2307146)",
+      "dimensions": "1200x900 (+600 sm)",
+      "duration": null,
+      "file": "assets/img/ms-guidance-photo-v1.webp",
+      "used_in": [
+        "index.html #world card, CSS living-photo motion"
+      ],
+      "tags": [
+        "guidance",
+        "photoreal",
+        "living-photo"
+      ],
+      "created": "2026-09-20"
     }
-  ]
+  ],
+  "notes": "Image-to-video on Higgsfield needs Basic plan or higher (free plan rejected, Sept 2026). Motion on photos is CSS (slow camera moves, monitor highlights, speech bubbles)."
 }
