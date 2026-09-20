@@ -160,6 +160,41 @@ section{padding-block:clamp(54px,8vw,96px)}
 @media(prefers-reduced-motion:reduce){.sv{display:none}}
 
 
+
+/* ================= the film behind everything ================= */
+.backdrop{position:fixed;inset:0;z-index:-2;background:#07120F;overflow:hidden}
+.backdrop img.bp,.backdrop video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.backdrop video{opacity:0;transition:opacity 1.4s ease}
+.backdrop video.on{opacity:1}
+.backdrop::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,18,15,.72),rgba(7,18,15,.80) 40%,rgba(7,18,15,.88));backdrop-filter:blur(2px)}
+:root{
+  --bg:transparent; --surface:rgba(255,255,255,.07); --veil:rgba(255,255,255,.09); --line:rgba(255,255,255,.14);
+  --ink:#EEF6F3; --body:#CFE0DA; --muted:#93AEA6; --pine-ink:#BFE3D7; --amber-soft:rgba(192,132,52,.18);
+}
+body{background:transparent;color:var(--body)}
+.top{background:rgba(7,18,15,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.chaos{background:rgba(7,18,15,.42);border-block:1px solid var(--line)}
+.trust{background:rgba(18,67,58,.55);color:#DDECE7}
+section,.demo,.hero{position:relative;z-index:1}
+.card,.stage,.plan,.msg,.kpi,.inc,.task,.acts div,.cal i,.solve,.sys article{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.stage{background:rgba(255,255,255,.08);border-color:var(--line);box-shadow:0 30px 60px -40px rgba(0,0,0,.8)}
+.stage .orb{background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.08),rgba(255,255,255,.02));border-radius:14px}
+.stage .bar span{color:var(--ink)}
+.nd{background:rgba(255,255,255,.90);border-color:rgba(255,255,255,.4);color:#16302B;box-shadow:0 10px 22px -14px rgba(0,0,0,.8)}
+.orb.chaos .nd{background:rgba(250,244,232,.9);border-color:rgba(217,199,168,.7);color:#5B5342}
+.orb-lines line{stroke:rgba(191,227,215,.5)}
+.btn.ghost{color:var(--ink);border-color:var(--line);background:rgba(255,255,255,.05)}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.langs{background:rgba(255,255,255,.06)}
+.plan.mid{border-color:var(--amber);box-shadow:0 0 0 1px rgba(192,132,52,.25),0 30px 60px -40px rgba(192,132,52,.5)}
+.tabs button[aria-selected="true"]{background:rgba(255,255,255,.12)}
+details{border-color:var(--line)}
+footer{border-top:1px solid var(--line);background:rgba(7,18,15,.55)}
+.soc a{background:rgba(255,255,255,.07);border-color:var(--line);color:var(--ink)}
+.film{height:clamp(300px,56svh,540px)}
+@media(prefers-reduced-motion:reduce){.backdrop video{display:none}}
+
 /* ================= film bands: the principal's evening ================= */
 .film{position:relative;height:clamp(320px,62svh,620px);overflow:hidden;background:#07120F;isolation:isolate}
 .film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
@@ -477,6 +512,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 </style>
 </head>
 <body>
+<div class="backdrop" aria-hidden="true">
+  <img class="bp" src="/assets/film/shot1.webp" alt="">
+</div>
 
 <header class="top">
   <div class="wrap">
@@ -523,7 +561,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
           <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.2.3 0 .5.2.3.7 1.2 1.6 2 1.1.9 1.9 1.2 2.2 1.4.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.6 0 1z"/></svg>
           <span data-i="cta_wa"></span>
         </a>
-        <a class="btn ghost" href="#film1" data-i="cta_sys"></a>
+        <a class="btn ghost" href="#systems" data-i="cta_sys"></a>
       </div>
       <p class="try-note" data-i="try_note"></p>
       <small data-i="hnote"></small>
@@ -547,10 +585,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
     </div>
   </div>
 </section>
-<section class="film " id="film1" data-shots="1,2">
-  <img class="poster" src="/assets/film/shot1.webp" alt="" loading="lazy" decoding="async">
-  
-</section>
+
 
 
 
@@ -570,10 +605,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 </section>
 
 
-<section class="film " id="film2" data-shots="3,4">
-  <img class="poster" src="/assets/film/shot3.webp" alt="" loading="lazy" decoding="async">
-  
-</section>
+
 
 <section id="systems">
   <div class="wrap">
@@ -1366,37 +1398,40 @@ ORB.paint();
 })();
 </script>
 <script>
-/* film bands: each band plays its two shots back to back, and only while it is on screen */
+/* the film runs behind the whole page: six shots in order, then it starts again */
 (()=>{
   const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
   const save=navigator.connection&&navigator.connection.saveData;
-  const bands=[...document.querySelectorAll(".film")];
-  if(!bands.length||RM||save) return;
-  const mk=(n)=>{const v=document.createElement("video");v.muted=true;v.playsInline=true;
-    v.setAttribute("playsinline","");v.preload="none";v.dataset.n=n;return v;};
-  bands.forEach(b=>{const [a,c]=b.dataset.shots.split(",");
-    b._v=[mk(a),mk(c)];b._v.forEach(v=>b.insertBefore(v,b.querySelector(".over")||null));b._i=0;});
-  const src=v=>{if(v.src)return;const wb=v.canPlayType('video/webm; codecs="vp9"');
-    v.src="/assets/film/shot"+v.dataset.n+(wb?".webm":".mp4");};
-  function play(b,i){
-    const v=b._v[i],o=b._v[1-i];b._i=i;src(v);
-    v.currentTime=0;v.play().catch(()=>{});
-    v.classList.add("on");o&&o.classList.remove("on");
-    src(o); /* warm the next one while this one runs */
-    v.onended=()=>play(b,1-i);
+  const box=document.querySelector(".backdrop");
+  const band=document.querySelector(".film");
+  const N=6; let i=0, cur=null, next=null;
+  const mk=n=>{const v=document.createElement("video");v.muted=true;v.playsInline=true;v.setAttribute("playsinline","");
+    v.preload="auto";v.setAttribute("aria-hidden","true");const wb=v.canPlayType('video/webm; codecs="vp9"');
+    v.src="/assets/film/shot"+n+(wb?".webm":".mp4");return v;};
+  if(!RM && !save && box){
+    const step=()=>{
+      const v=next||mk(i+1); next=null;
+      box.appendChild(v); v.play().catch(()=>{});
+      v.classList.add("on");
+      if(cur){const old=cur;old.classList.remove("on");setTimeout(()=>old.remove(),1500);}
+      cur=v; i=(i+1)%N;
+      next=mk(i+1);                                  /* warm the next shot while this one plays */
+      v.onended=step;
+      box.querySelector("img.bp").src="/assets/film/shot"+(i+1)+".webp";
+    };
+    addEventListener('load',()=>setTimeout(step, innerWidth>820?400:1400),{once:true});
+    document.addEventListener("visibilitychange",()=>{if(!cur)return;document.hidden?cur.pause():cur.play().catch(()=>{});});
   }
-  new IntersectionObserver(es=>es.forEach(x=>{
-    const b=x.target;
-    if(x.isIntersecting) play(b,b._i||0);
-    else b._v.forEach(v=>{v.pause();v.classList.remove("on");});
-  }),{threshold:.25}).observe ? bands.forEach(b=>{
+  /* the one titled moment keeps its own clip of the key */
+  if(band && !RM && !save){
+    const v=document.createElement("video");v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute("playsinline","");
+    v.preload="none";const wb=v.canPlayType('video/webm; codecs="vp9"');
+    v.src="/assets/film/shot5"+(wb?".webm":".mp4");
+    band.insertBefore(v,band.querySelector(".over"));
     new IntersectionObserver(es=>es.forEach(x=>{
-      if(x.isIntersecting) play(b,b._i||0);
-      else b._v.forEach(v=>{v.pause();v.classList.remove("on");});
-    }),{threshold:.25}).observe(b);
-  }):0;
-  document.addEventListener("visibilitychange",()=>{if(document.hidden)bands.forEach(b=>b._v.forEach(v=>v.pause()));});
-  /* buttons: a little life under the pointer */
+      if(x.isIntersecting){v.play().catch(()=>{});v.classList.add("on");}else{v.pause();v.classList.remove("on");}
+    }),{threshold:.25}).observe(band);
+  }
   document.querySelectorAll(".btn").forEach(b=>b.addEventListener("pointermove",e=>{
     const r=b.getBoundingClientRect();b.style.setProperty("--bx",(e.clientX-r.left)+"px");
     b.style.setProperty("--by2",(e.clientY-r.top)+"px");}));
