@@ -509,6 +509,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 .soc svg{width:18px;height:18px;fill:currentColor}
 
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+
+/* ===== final pass: contrast that is easy on the eye over the film ===== */
+.trust{background:rgba(10,32,27,.72);color:#DCEBE6;border-block:1px solid rgba(255,255,255,.10)}
+.trust h2,.trust h3{color:#FFFFFF}
+.trust p{color:#B9D2CB}
+.trust .rule{background:rgba(240,192,126,.75)}
+.chaos{background:rgba(9,24,20,.55)}
+.chaos li b{color:#EAF4F0}
+.chaos li p,.hero small,.try-note{color:#A9C2BB}
+h1,h2,h3{color:#F2F8F6}
+body{color:#C9DCD5}
+.muted,.sys article p,.plan li,.faq p,details p{color:#A9C2BB}
+.sys article{background:rgba(255,255,255,.05);border-radius:14px;padding-inline:16px;border:1px solid rgba(255,255,255,.09)}
+.sys{border-top:0;gap:12px}
+.sys article+article{border-top:0}
+.plan{background:rgba(255,255,255,.06)}
+.plan .price{color:#F3D7AE}
+.lvl,.tag{background:rgba(192,132,52,.18);color:#F0C07E}
+details{background:rgba(255,255,255,.05);border-radius:12px;padding-inline:14px}
+summary{color:#EAF4F0}
+footer{background:rgba(7,18,15,.72);color:#A9C2BB}
+.top{background:rgba(7,18,15,.75)}
+/* the film reads better a touch darker and softer */
+.backdrop::after{background:linear-gradient(180deg,rgba(7,18,15,.78),rgba(7,18,15,.84) 40%,rgba(7,18,15,.90));backdrop-filter:blur(3px)}
 </style>
 </head>
 <body>
