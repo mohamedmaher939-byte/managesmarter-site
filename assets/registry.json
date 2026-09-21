@@ -530,7 +530,7 @@
       "model": "none (real footage) — cropped status/Safari bars, loading second removed",
       "dimensions": "400×716, 30fps",
       "duration": "17.9s loop, muted",
-      "file": "assets/film/app-tour.mp4 (+ .webm, .webp poster)",
+      "file": "assets/film/app-tour-v2.mp4 (+ .webm, .webp poster)",
       "used_in": [
         "index.html hero phone"
       ],

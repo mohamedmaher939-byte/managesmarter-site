@@ -620,7 +620,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
 
     <figure class="tourph" id="tour">
       <div class="tsc">
-        <img src="/assets/film/app-tour.webp" alt="" width="400" height="716" decoding="async">
+        <img src="/assets/film/app-tour-v2.webp" alt="" width="400" height="716" decoding="async">
         <video id="tourv" muted playsinline loop preload="none" aria-hidden="true"></video>
       </div>
       <figcaption><i></i><span data-i="phone_cap"></span></figcaption>
@@ -1383,7 +1383,7 @@ if(window.ORB) ORB.paint();
   let ready=false;
   new IntersectionObserver(es=>es.forEach(x=>{
     if(x.isIntersecting){
-      if(!ready){ready=true;v.src="/assets/film/app-tour"+(v.canPlayType('video/webm; codecs="vp9"')?".webm":".mp4");
+      if(!ready){ready=true;v.src="/assets/film/app-tour-v2"+(v.canPlayType('video/webm; codecs="vp9"')?".webm":".mp4");
         v.addEventListener("playing",()=>v.classList.add("on"),{once:true});}
       v.play().catch(()=>{});
     }else v.pause();
@@ -1397,7 +1397,7 @@ if(window.ORB) ORB.paint();
     bs[k].querySelector("s").style.width=(f*100)+"%";
     if(!v.paused)requestAnimationFrame(sync);};
   v.addEventListener("play",()=>requestAnimationFrame(sync));
-  bs.forEach((b,n)=>b.addEventListener("click",()=>{if(!ready){ready=true;v.src="/assets/film/app-tour"+(v.canPlayType('video/webm; codecs="vp9"')?".webm":".mp4");}
+  bs.forEach((b,n)=>b.addEventListener("click",()=>{if(!ready){ready=true;v.src="/assets/film/app-tour-v2"+(v.canPlayType('video/webm; codecs="vp9"')?".webm":".mp4");}
     const go=()=>{v.currentTime=ts[n]+.02;v.play().catch(()=>{});v.classList.add("on");};
     v.readyState>0?go():v.addEventListener("loadedmetadata",go,{once:true});}));
 })();
