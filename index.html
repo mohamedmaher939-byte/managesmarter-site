@@ -545,6 +545,22 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
 @keyframes tping{70%{box-shadow:0 0 0 9px rgba(224,164,88,0)}100%{box-shadow:0 0 0 0 rgba(224,164,88,0)}}
 @media(min-width:940px){.tourph{width:300px}}
 @media(prefers-reduced-motion:reduce){.tourph figcaption i{animation:none}}
+
+.chap{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:6px}
+.chap button{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;position:relative;overflow:hidden;
+  padding:9px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);transition:background .3s,border-color .3s}
+.chap b{position:relative;z-index:1;font-weight:500;font-size:14px;color:var(--muted);transition:color .3s}
+.chap s{position:absolute;inset-block:0;inset-inline-start:0;width:0;background:rgba(143,212,191,.14);text-decoration:none}
+.chap button[aria-current="true"]{border-color:rgba(224,164,88,.55);background:rgba(224,164,88,.08)}
+.chap button[aria-current="true"] b{color:#fff}
+.chap button:hover b,.chap button:focus-visible b{color:#fff}
+@media(max-width:939px){
+  .chap{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-inline:-4px}
+  .chap::-webkit-scrollbar{display:none}
+  .chap b{font-size:13px;white-space:nowrap}
+}
+@media(min-width:940px){.tourph{display:grid;grid-template-columns:300px 1fr;column-gap:22px;width:auto;align-items:center}
+  .tourph figcaption{grid-column:1;grid-row:2}.tourph .chap{grid-column:2;grid-row:1;margin:0}}
 </style>
 </head>
 <body>
@@ -564,7 +580,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
       Manage Smarter
     </a>
     <nav>
-      <a href="#demo" class="hide-sm" data-i="nav_demo"></a>
+      <a href="#tour" class="hide-sm" data-i="nav_demo"></a>
       <a href="#systems" class="hide-sm" data-i="nav_sys"></a>
       <a href="#how" class="hide-sm" data-i="nav_how"></a>
       <a href="#who" class="hide-sm" data-i="nav_who"></a>
@@ -602,12 +618,20 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
       <small data-i="hnote"></small>
     </div>
 
-    <figure class="tourph">
+    <figure class="tourph" id="tour">
       <div class="tsc">
         <img src="/assets/film/app-tour.webp" alt="" width="400" height="716" decoding="async">
-        <video id="tour" muted playsinline loop preload="none" aria-hidden="true"></video>
+        <video id="tourv" muted playsinline loop preload="none" aria-hidden="true"></video>
       </div>
       <figcaption><i></i><span data-i="phone_cap"></span></figcaption>
+      <ol class="chap" id="chap" aria-label="chapters">
+        <li><button type="button" data-t="0"><b data-i="ch_t1"></b><s></s></button></li>
+        <li><button type="button" data-t="2"><b data-i="ch_t2"></b><s></s></button></li>
+        <li><button type="button" data-t="4.5"><b data-i="ch_t3"></b><s></s></button></li>
+        <li><button type="button" data-t="7.05"><b data-i="ch_t4"></b><s></s></button></li>
+        <li><button type="button" data-t="9.5"><b data-i="ch_t5"></b><s></s></button></li>
+        <li><button type="button" data-t="11.9"><b data-i="ch_t6"></b><s></s></button></li>
+      </ol>
     </figure>
     </div>
   </div>
@@ -647,109 +671,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
 </section>
 
 
-<section id="demo" class="demo">
-  <div class="wrap">
-    <div>
-      <h2 data-i="dm_h"></h2>
-      <p data-i="dm_sub"></p>
-      <div class="tabs" role="tablist">
-        <button role="tab" data-p="a" aria-selected="true"><b data-i="dm_a"></b><span data-i="dm_ap"></span></button>
-        <button role="tab" data-p="b" aria-selected="false"><b data-i="dm_b"></b><span data-i="dm_bp"></span></button>
-        <button role="tab" data-p="c" aria-selected="false"><b data-i="dm_c"></b><span data-i="dm_cp"></span></button>
-        <button role="tab" data-p="d" aria-selected="false"><b data-i="dm_d"></b><span data-i="dm_dp"></span></button>
-        <button role="tab" data-p="e" aria-selected="false"><b data-i="dm_e"></b><span data-i="dm_ep"></span></button>
-      </div>
-      <div class="solve"><b data-i="dm_res"></b></div>
-    </div>
 
-    <div class="phone">
-      <div class="screen">
-        <div class="scr-top">
-          <div class="av"></div>
-          <div><b data-i="dm_school"></b><i data-i="dm_year"></i></div>
-        </div>
-
-        <div class="pane on run" data-pane="a" style="position:relative">
-          <div style="color:var(--muted)" data-i="dm_a_t"></div>
-          <div class="cal">
-            <i>1</i><i>2</i><i>3</i><i>4</i><i class="ex">5</i><i class="ex">6</i><i class="ex">7</i>
-            <i class="ex">8</i><i class="ex">9</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i>
-            <i>15</i><i>16</i><i>17</i><i>18</i><i>19</i><i>20</i><i>21</i>
-          </div>
-          <div class="chip" style="top:74px;inset-inline-start:30%" data-i="dm_a_chip"></div>
-          <div class="warn" data-i="dm_a_warn"></div>
-          <div class="fixed" data-i="dm_a_ok"></div>
-        </div>
-
-        <div class="pane" data-pane="b">
-          <div class="msg" data-i="dm_b_msg"></div>
-          <div class="card">
-            <b data-i="dm_b_cardt"></b>
-            <small data-i="dm_b_cards"></small>
-            <div class="flow">
-              <span data-i="dm_f1"></span><span data-i="dm_f2"></span>
-              <span data-i="dm_f3"></span><span data-i="dm_f4"></span>
-            </div>
-          </div>
-          <div class="fixed" style="margin-top:10px" data-i="dm_b_ok"></div>
-        </div>
-
-        <div class="pane" data-pane="c">
-          <div class="kpis">
-            <div class="kpi"><b>86%</b><span data-i="dm_c_k1"></span></div>
-            <div class="kpi"><b>4.3</b><span data-i="dm_c_k2"></span></div>
-            <div class="kpi"><b>12</b><span data-i="dm_c_k3"></span></div>
-            <div class="kpi"><b>2.4</b><span data-i="dm_c_k4"></span></div>
-          </div>
-          <div class="bars">
-            <i style="--h:72%"></i><i style="--h:44%"></i><i style="--h:88%"></i>
-            <i style="--h:36%"></i><i style="--h:62%"></i>
-          </div>
-          <div class="ready"><span data-i="dm_c_ready"></span><span>PDF</span></div>
-        </div>
-
-        <div class="pane" data-pane="d">
-          <div style="color:var(--muted);margin-bottom:9px" data-i="dm_d_t"></div>
-          <div class="inc">
-            <div class="lv"><span class="l1">1</span><span class="l2">2</span><span class="l3">3</span></div>
-            <div><b data-i="dm_d_inc"></b><small data-i="dm_d_sub"></small></div>
-          </div>
-          <div class="rule" data-i="dm_d_rule"></div>
-          <div class="acts">
-            <div><span data-i="dm_d_a1"></span><i>✓</i></div>
-            <div><span data-i="dm_d_a2"></span><i>✓</i></div>
-            <div><span data-i="dm_d_a3"></span><i>✓</i></div>
-          </div>
-        </div>
-
-        <div class="pane" data-pane="e">
-          <div style="color:var(--muted)" data-i="dm_e_t"></div>
-          <div class="prog"><i></i></div>
-          <div class="task fresh">
-            <div class="who">م</div>
-            <div class="tx"><span data-i="dm_e_t4"></span><small data-i="dm_e_d4"></small></div>
-            <div class="st"><span class="late" data-i="dm_e_new"></span></div>
-          </div>
-          <div class="task">
-            <div class="who">ف</div>
-            <div class="tx"><span data-i="dm_e_t1"></span><small data-i="dm_e_d1"></small></div>
-            <div class="st"><span class="late" data-i="dm_e_late"></span><span class="done" data-i="dm_e_done"></span></div>
-          </div>
-          <div class="task">
-            <div class="who">ز</div>
-            <div class="tx"><span data-i="dm_e_t2"></span><small data-i="dm_e_d2"></small></div>
-            <div class="st"><span class="done" style="opacity:1" data-i="dm_e_done"></span></div>
-          </div>
-          <div class="task">
-            <div class="who">س</div>
-            <div class="tx"><span data-i="dm_e_t3"></span><small data-i="dm_e_d3"></small></div>
-            <div class="st"><span class="late" data-i="dm_e_late"></span><span class="done" data-i="dm_e_done"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="how" class="chaos">
   <div class="wrap">
@@ -1170,6 +1092,12 @@ p3a:["لوحة تجمع كل الفروع","One dashboard across all campuses","
 p3b:["تقارير مقارنة بين المدارس","Comparative reports between schools","Okullar arası karşılaştırmalı raporlar"],
 p3c:["تعديلات خاصة بمجموعتكم","Adjustments specific to your group","Grubunuza özel düzenlemeler"],
 pr_cta:["اطلب عرضًا","Request a quote","Teklif isteyin"],
+ch_t1:["كل الأنظمة في شاشة واحدة","Every system on one screen","Tüm sistemler tek ekranda"],
+ch_t2:["التقويم: لا تعارض في المواعيد","Calendar: no clashing dates","Takvim: çakışan tarih yok"],
+ch_t3:["أولياء الأمور: كل ملاحظة تُتابَع","Parents: every note followed up","Veliler: her not takip edilir"],
+ch_t4:["الانضباط: سجلّ واحد لكل طالب","Discipline: one record per student","Disiplin: her öğrenciye tek kayıt"],
+ch_t5:["المهام: مَن المسؤول ومتى","Tasks: who owns what, by when","Görevler: kim, ne zaman"],
+ch_t6:["الصلاحيات: كل موظف يرى ما يخصّه","Permissions: each role sees its part","Yetkiler: herkes kendi alanını görür"],
 phone_cap:["لقطة حقيقية من داخل النظام","A real look inside the system","Sistemin içinden gerçek bir görüntü"],
 pr_q:["عرض سعر خلال ٢٤ ساعة","Quote within 24 hours","24 saatte teklif"],
 pr_note:["الأرقام النهائية تُحدَّد بعد مكالمة قصيرة — عدد الطلاب والأنظمة المطلوبة يغيّران السعر.",
@@ -1220,7 +1148,7 @@ function showPane(i){
 }
 function cycle(){clearInterval(timer);timer=setInterval(()=>showPane((pi+1)%panes.length),9000);}
 tabs.forEach((b,n)=>b.onclick=()=>{showPane(n);cycle();});
-if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){showPane(0);cycle();}
+if(panes.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){showPane(0);cycle();}
 
 /* hero: scattered school data -> one organized system.
    Plain DOM + one small SVG. The animation loop runs only while the scene is visible. */
@@ -1449,7 +1377,7 @@ if(window.ORB) ORB.paint();
 
 <script>
 /* hero phone: plays the real app tour only while it is on screen */
-(()=>{const v=document.getElementById("tour");if(!v)return;
+(()=>{const v=document.getElementById("tourv");if(!v)return;
   const RM=matchMedia("(prefers-reduced-motion: reduce)").matches, save=navigator.connection&&navigator.connection.saveData;
   if(RM||save)return;
   let ready=false;
@@ -1460,6 +1388,18 @@ if(window.ORB) ORB.paint();
       v.play().catch(()=>{});
     }else v.pause();
   }),{threshold:.3}).observe(v);
+  const bs=[...document.querySelectorAll("#chap button")], ts=bs.map(b=>+b.dataset.t);
+  let cur=-1;
+  const sync=()=>{const t=v.currentTime,d=v.duration||14.13;let k=0;ts.forEach((x,n)=>{if(t>=x)k=n;});
+    const end=ts[k+1]??d, f=Math.min(1,(t-ts[k])/(end-ts[k]));
+    if(k!==cur){bs.forEach((b,n)=>{b.setAttribute("aria-current",n===k);if(n!==k)b.querySelector("s").style.width="0";});cur=k;
+      if(innerWidth<940){const b=bs[k],c=b.closest(".chap");c.scrollTo({left:b.offsetLeft-(c.clientWidth-b.offsetWidth)/2,behavior:"smooth"});}}
+    bs[k].querySelector("s").style.width=(f*100)+"%";
+    if(!v.paused)requestAnimationFrame(sync);};
+  v.addEventListener("play",()=>requestAnimationFrame(sync));
+  bs.forEach((b,n)=>b.addEventListener("click",()=>{if(!ready){ready=true;v.src="/assets/film/app-tour"+(v.canPlayType('video/webm; codecs="vp9"')?".webm":".mp4");}
+    const go=()=>{v.currentTime=ts[n]+.02;v.play().catch(()=>{});v.classList.add("on");};
+    v.readyState>0?go():v.addEventListener("loadedmetadata",go,{once:true});}));
 })();
 </script>
 </body>
