@@ -159,8 +159,6 @@ section{padding-block:clamp(54px,8vw,96px)}
 .ph:has(.sv.on) img,.campus .fl:has(.sv.on) img{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.sv{display:none}}
 
-
-
 /* ================= the film behind everything ================= */
 .backdrop{position:fixed;inset:0;z-index:-2;background:#07120F;overflow:hidden}
 .backdrop img.bp,.backdrop video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -170,7 +168,7 @@ section{padding-block:clamp(54px,8vw,96px)}
   background:linear-gradient(180deg,rgba(7,18,15,.72),rgba(7,18,15,.80) 40%,rgba(7,18,15,.88));backdrop-filter:blur(2px)}
 :root{
   --bg:transparent; --surface:rgba(255,255,255,.07); --veil:rgba(255,255,255,.09); --line:rgba(255,255,255,.14);
-  --ink:#EEF6F3; --body:#CFE0DA; --muted:#93AEA6; --pine-ink:#BFE3D7; --amber-soft:rgba(192,132,52,.18);
+  --ink:#EEF6F3; --body:#DCEAE5; --muted:#AFC6BF; --pine-ink:#BFE3D7; --amber-soft:rgba(192,132,52,.18);
 }
 body{background:transparent;color:var(--body)}
 .top{background:rgba(7,18,15,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
@@ -480,7 +478,7 @@ footer{border-top:1px solid var(--line);background:rgba(7,18,15,.55)}
 @media(min-width:860px){.plans{grid-template-columns:repeat(3,1fr)}}
 .plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--rad);padding:26px 22px;display:flex;flex-direction:column}
 .plan.mid{border-color:var(--pine);box-shadow:0 24px 46px -40px rgba(18,67,58,.6)}
-.plan .price{font-family:"Rubik",sans-serif;font-size:30px;color:var(--pine-ink);font-weight:600;letter-spacing:.04em;margin:12px 0 4px}
+.plan .price{font-family:"Rubik","Tajawal",sans-serif;font-size:19px;color:var(--pine-ink);font-weight:600;letter-spacing:.04em;margin:12px 0 4px}
 .plan .price span{color:var(--line)}
 .plan .per{font-size:13.5px;color:var(--muted)}
 .plan ul{list-style:none;margin:18px 0 22px;display:grid;gap:9px}
@@ -585,7 +583,6 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
           <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.2.3 0 .5.2.3.7 1.2 1.6 2 1.1.9 1.9 1.2 2.2 1.4.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.6 0 1z"/></svg>
           <span data-i="cta_wa"></span>
         </a>
-        <a class="btn ghost" href="#systems" data-i="cta_sys"></a>
       </div>
       <p class="try-note" data-i="try_note"></p>
       <small data-i="hnote"></small>
@@ -609,27 +606,6 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
     </div>
   </div>
 </section>
-
-
-
-
-
-
-<section class="chaos">
-  <div class="wrap">
-    <h2 data-i="ch_h"></h2>
-    <p data-i="ch_sub"></p>
-    <ul>
-      <li><i></i><div><b data-i="ch1b"></b><p data-i="ch1p"></p></div></li>
-      <li><i></i><div><b data-i="ch2b"></b><p data-i="ch2p"></p></div></li>
-      <li><i></i><div><b data-i="ch3b"></b><p data-i="ch3p"></p></div></li>
-      <li><i></i><div><b data-i="ch4b"></b><p data-i="ch4p"></p></div></li>
-    </ul>
-  </div>
-</section>
-
-
-
 
 <section id="systems">
   <div class="wrap">
@@ -839,7 +815,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
     <div class="plans">
       <div class="plan">
         <h3 data-i="p1h"></h3>
-        <div class="price">$<span>$$</span></div>
+        <div class="price" data-i="pr_q"></div>
         <div class="per" data-i="p1per"></div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 7"/></svg><span data-i="p1a"></span></li>
@@ -850,7 +826,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
       </div>
       <div class="plan mid">
         <h3 data-i="p2h"></h3>
-        <div class="price">$$<span>$</span></div>
+        <div class="price" data-i="pr_q"></div>
         <div class="per" data-i="p2per"></div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 7"/></svg><span data-i="p2a"></span></li>
@@ -862,7 +838,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
       </div>
       <div class="plan">
         <h3 data-i="p3h"></h3>
-        <div class="price">$$$</div>
+        <div class="price" data-i="pr_q"></div>
         <div class="per" data-i="p3per"></div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 7"/></svg><span data-i="p3a"></span></li>
@@ -1188,6 +1164,7 @@ p3a:["لوحة تجمع كل الفروع","One dashboard across all campuses","
 p3b:["تقارير مقارنة بين المدارس","Comparative reports between schools","Okullar arası karşılaştırmalı raporlar"],
 p3c:["تعديلات خاصة بمجموعتكم","Adjustments specific to your group","Grubunuza özel düzenlemeler"],
 pr_cta:["اطلب عرضًا","Request a quote","Teklif isteyin"],
+pr_q:["عرض سعر خلال ٢٤ ساعة","Quote within 24 hours","24 saatte teklif"],
 pr_note:["الأرقام النهائية تُحدَّد بعد مكالمة قصيرة — عدد الطلاب والأنظمة المطلوبة يغيّران السعر.",
          "Final figures follow a short call — student numbers and the systems you need change the price.",
          "Kesin rakamlar kısa bir görüşmeden sonra belirlenir; öğrenci sayısı ve sistemler fiyatı değiştirir."],
