@@ -521,28 +521,6 @@
         "men-only"
       ],
       "created": "2026-09-20"
-    },
-    {
-      "id": "ms-key-turntable",
-      "type": "image-sequence",
-      "source": "Higgsfield",
-      "model": "seedance_2_0_mini (image-to-video, 720p, 5s) → 30 frames → webp sprite sheet",
-      "prompt": "Product turntable: the brass key with its blank tag floats above the open box and rotates a full 360°, static camera, warm light glinting on the metal. No text, no people.",
-      "dimensions": "desktop sheet 3360×1580 (6×5 @560×316) · mobile sheet 2400×813 (5×3 @480×271)",
-      "duration": "scroll-scrubbed (no playback)",
-      "file": "assets/film/keyturn.webp, assets/film/keyturn-sm.webp",
-      "used_in": [
-        "index.html #film3 — the key turns as you scroll"
-      ],
-      "tags": [
-        "3d",
-        "key",
-        "box",
-        "turntable",
-        "scroll",
-        "men-only"
-      ],
-      "created": "2026-09-20"
     }
   ],
   "notes": "Videos: H.264 mp4 + VP9 webm; page picks webm when supported, lazy-loads on scroll, pauses off-screen, skipped on data-saver/reduced-motion. Generated during the Higgsfield MCP Plus trial (Sept 2026). Story frames: the key's brass tag was left blank by the model and engraved 'Manage Smarter' in a browser render (scratchpad/brand/engrave.html), so the wording stays editable. Film: the six shots play in order as the page's fixed backdrop (started after load, paused when the tab is hidden), plus one titled band for the key before pricing; skipped on reduced-motion and data-saver. People in the film: men and boys only."

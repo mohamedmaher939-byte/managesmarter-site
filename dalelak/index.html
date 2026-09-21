@@ -147,6 +147,64 @@ footer{border-top:1px solid var(--line);background:rgba(6,25,37,.85);padding:20p
 .offline-note.show{display:block}
 .f-phones a{color:inherit;text-decoration:none}.f-phones{display:inline-flex;flex-direction:column;gap:2px;line-height:1.5;direction:ltr;text-align:left}.f-phones a{unicode-bidi:isolate}
 .call-only{opacity:.75;font-size:.85em;margin-inline-start:6px}
+
+/* ===== service orbit: the compass points at each service in turn ===== */
+.orbit{position:relative}
+.compass{width:min(380px,82vw);overflow:visible}
+.needle-rot{transform-origin:250px 250px;transform-box:view-box;transition:transform 1.1s cubic-bezier(.3,1.35,.4,1)}
+.needle{transform-box:view-box}
+.spin{transform-origin:250px 250px;transform-box:view-box;animation:spin 60s linear infinite}
+.spin.rev{animation-duration:90s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ray{transform-origin:250px 250px;transform-box:view-box;transition:transform 1.1s cubic-bezier(.3,1.35,.4,1),opacity .5s}
+.orbit.live .ray{opacity:.55}
+.orb-i{cursor:pointer;outline:none}
+.orb-b{transition:transform .45s cubic-bezier(.2,1.4,.4,1)}
+.orb-i circle{fill:#0B2C3F;stroke:rgba(235,197,124,.35);stroke-width:1.5;transition:fill .4s,stroke .4s}
+.orb-i svg path,.orb-i svg circle,.orb-i svg rect,.orb-i svg line,.orb-i svg polyline{fill:none;stroke:#A9C6D4;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.orb-i svg circle{fill:none;stroke-width:1.7}
+.orb-i.on .orb-b{transform:scale(1.22)}
+.orb-i.on>g>circle{fill:#D19A38;stroke:#EBC57C;filter:drop-shadow(0 0 14px rgba(235,197,124,.65))}
+.orb-i.on svg *{stroke:#08202F !important}
+.orb-i:hover>g>circle,.orb-i:focus-visible>g>circle{stroke:#EBC57C}
+.orb-cap{text-align:center;margin-top:10px;min-height:52px}
+.orb-cap b{display:block;font:700 19px var(--f-head);color:var(--brass-soft);transition:opacity .35s,transform .35s}
+.orb-cap b.swap{opacity:0;transform:translateY(6px)}
+.orb-cap small{color:var(--muted);font-size:13px}
+@media(max-width:880px){.compass{width:min(270px,70vw)}.hero>div:last-child{order:-1}.orb-cap{min-height:44px}}
+
+/* ===== service panels come alive ===== */
+.panel.on .svc-ico{animation:pop .6s cubic-bezier(.2,1.5,.4,1) both}
+.panel.on .svc-ico svg{animation:bob 3.2s ease-in-out .7s infinite}
+@keyframes pop{from{transform:scale(.4) rotate(-18deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes bob{50%{transform:translateY(-3px) rotate(-4deg)}}
+.panel.on ul.pts li{animation:slideIn .55s cubic-bezier(.2,.9,.25,1) both}
+.panel.on ul.pts li:nth-child(1){animation-delay:.12s}.panel.on ul.pts li:nth-child(2){animation-delay:.24s}
+.panel.on ul.pts li:nth-child(3){animation-delay:.36s}.panel.on ul.pts li:nth-child(4){animation-delay:.48s}
+.panel.on ul.pts li:nth-child(5){animation-delay:.6s}
+@keyframes slideIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+html[dir="ltr"] .panel.on ul.pts li{animation-name:slideInL}
+@keyframes slideInL{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+.panel.on .tag{animation:fade .5s ease both .7s}
+
+/* per-service scene */
+.scene{margin-top:20px;border:1px solid var(--line);border-radius:12px;background:rgba(8,32,47,.55);padding:14px 12px 10px;overflow:hidden}
+.scene svg{width:100%;height:auto;display:block}
+.scene text{font-family:var(--f-body);fill:#DCEAF0}
+.route-line{stroke:#2A8AA6;stroke-width:2;stroke-dasharray:5 7;fill:none;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+.route-dot{fill:#EBC57C;filter:drop-shadow(0 0 6px rgba(235,197,124,.8))}
+.stop>circle{fill:#0B2C3F;stroke:#2A8AA6;stroke-width:2}
+.stamp{transform-box:fill-box;transform-origin:center;opacity:0;animation:6s ease infinite both}
+.stamp.s1{animation-name:st1}.stamp.s2{animation-name:st2}.stamp.s3{animation-name:st3}
+@keyframes st1{0%,14%{opacity:0;transform:scale(1.9) rotate(-14deg)}20%,92%{opacity:1;transform:rotate(-8deg)}100%{opacity:0}}
+@keyframes st2{0%,44%{opacity:0;transform:scale(1.9) rotate(-14deg)}50%,92%{opacity:1;transform:rotate(-8deg)}100%{opacity:0}}
+@keyframes st3{0%,74%{opacity:0;transform:scale(1.9) rotate(-14deg)}80%,92%{opacity:1;transform:rotate(-8deg)}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.stamp{animation:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .spin,.panel.on .svc-ico,.panel.on .svc-ico svg,.panel.on ul.pts li,.panel.on .tag,.route-line{animation:none}
+  .needle-rot,.ray{transition:none}
+}
 </style>
 </head>
 <body>
@@ -339,18 +397,18 @@ ar:{dir:'rtl',brand:'دليلك',install:'تثبيت التطبيق',wa:'وات�
     tags:['شراء','بيع','استثمار','مراجعة الطابو'],
     sideH:'احكيلنا عن طلبك',sideP:'قول لنا: شراء ولا بيع ولا استثمار، والمدينة والميزانية، ونرجع لك بالتفاصيل.',
     wa:'مرحباً دليلك، أريد استشارة عقارية (شراء / بيع / استثمار)'},
-  visa:{tab:'فيزا علاجية',title:'دعوة علاجية وفيزا علاجية للسوريين',
-    lede:'استخراج دعوة علاجية من مشفى في تركيا، ومتابعة إجراءات الفيزا العلاجية للإخوة السوريين. بنتعامل مع المشفى ونجهّز التقارير والمخاطبات، ونفضل معاك لحد وصول المريض وبدء العلاج بإذن الله.',
+  visa:{tab:'فيزا علاجية',title:'دعوة علاجية وفيزا علاجية لجميع الجنسيات',
+    lede:'استخراج دعوة علاجية من مشفى في تركيا، ومتابعة إجراءات الفيزا العلاجية للمرضى من جميع الجنسيات. بنتعامل مع المشفى ونجهّز التقارير والمخاطبات، ونفضل معاك لحد وصول المريض وبدء العلاج بإذن الله.',
     pts:['<b>دعوة من مشفى معتمد:</b> نرتّب الدعوة الرسمية باسم المريض حسب حالته.','<b>تجهيز التقارير:</b> ترجمة التقارير الطبية وترتيبها كما تطلب الجهات.','<b>متابعة إجراءات الفيزا:</b> شرح المطلوب خطوة بخطوة ومتابعة الطلب.'],
-    tags:['دعوة مشفى','للسوريين','ترجمة تقارير','متابعة كاملة'],
+    tags:['دعوة مشفى','لكل الجنسيات','ترجمة تقارير','متابعة كاملة'],
     sideH:'ابدأ إجراءات الدعوة',sideP:'ابعت تقرير الحالة والبيانات، ونوضّح لك المطلوب والمدة والسعر.',
     wa:'مرحباً دليلك، أريد معرفة سعر خدمة: دعوة علاجية وفيزا علاجية'},
-  kaym:{tab:'قائم مقام',title:'توثيق أوراق في القائم مقام',
-    lede:'تصديق ومعاملات القائم مقام (Kaymakamlık) من غير ما تضيع يومك في السؤال عن الشباك الصح. بنجهّز الأوراق بالترتيب المطلوب، ونمشي المعاملة لحد ما تخرج موثّقة بين إيديك.',
-    pts:['<b>مراجعة الأوراق قبل الدخول:</b> عشان ما ترجعش تاني يوم بسبب ورقة ناقصة.','<b>ترتيب الملف:</b> ترجمات وتصديقات بالشكل اللي الدائرة بتطلبه.','<b>متابعة الاستلام:</b> نتابع خروج الورقة الموثّقة ونسلّمها لك.'],
-    tags:['تصديق رسمي','تجهيز الملف','متابعة الاستلام'],
+  kaym:{tab:'توثيق الأوراق',title:'توثيق الأوراق: القائم مقام، الولاية، والخارجية',
+    lede:'سلسلة التوثيق كاملة: القائم مقام (Kaymakamlık)، ثم ختم ولاية إسطنبول (Valilik)، ثم ختم وزارة الخارجية التركية في أنقرة. بنجهّز الأوراق بالترتيب المطلوب، ونمشي المعاملة في كل جهة لحد ما تخرج موثّقة بين إيديك.',
+    pts:['<b>القائم مقام:</b> مراجعة الأوراق وتوثيقها في القائم مقام.','<b>ختم الوالي في إسطنبول:</b> تصديق الورقة في ولاية إسطنبول.','<b>ختم الخارجية التركية في أنقرة:</b> التصديق النهائي من وزارة الخارجية لاستخدام الورقة خارج تركيا.','<b>متابعة الاستلام:</b> نتابع خروج الورقة الموثّقة ونسلّمها لك.'],
+    tags:['القائم مقام','ختم الوالي','الخارجية — أنقرة','متابعة الاستلام'],
     sideH:'وضّح لنا نوع المعاملة',sideP:'قول لنا الورقة المطلوب توثيقها، ونرد بالمطلوب والسعر والمدة.',
-    wa:'مرحباً دليلك، أريد معرفة سعر خدمة: توثيق أوراق في القائم مقام'}
+    wa:'مرحباً دليلك، أريد معرفة سعر خدمة: توثيق أوراق (القائم مقام / الولاية / الخارجية)'}
   }},
 
 en:{dir:'ltr',brand:'Dalelak',install:'Install app',wa:'WhatsApp',price:'Service price',
@@ -413,18 +471,18 @@ en:{dir:'ltr',brand:'Dalelak',install:'Install app',wa:'WhatsApp',price:'Service
     tags:['Buy','Sell','Invest','Title deed review'],
     sideH:'Tell us what you need',sideP:'Buying, selling or investing? Tell us the city and budget, and we will reply with the details.',
     wa:'Hello Dalelak, I would like real estate advice (buy / sell / invest)'},
-  visa:{tab:'Treatment visa',title:'Medical invitation & treatment visa for Syrians',
-    lede:'We obtain a treatment invitation from a hospital in Türkiye and follow the treatment visa procedures for Syrian applicants. We deal with the hospital, prepare the reports and correspondence, and stay with you until the patient arrives and treatment begins.',
+  visa:{tab:'Treatment visa',title:'Medical invitation & treatment visa for all nationalities',
+    lede:'We obtain a treatment invitation from a hospital in Türkiye and follow the treatment visa procedures for patients of any nationality. We deal with the hospital, prepare the reports and correspondence, and stay with you until the patient arrives and treatment begins.',
     pts:['<b>Invitation from an approved hospital:</b> issued in the patient’s name for their condition.','<b>Report preparation:</b> medical reports translated and arranged as required.','<b>Visa procedure follow-up:</b> each step explained and the application tracked.'],
-    tags:['Hospital invitation','For Syrians','Report translation','Full follow-up'],
+    tags:['Hospital invitation','All nationalities','Report translation','Full follow-up'],
     sideH:'Start the invitation process',sideP:'Send the medical report and details, and we will explain the requirements, timeline and price.',
     wa:'Hello Dalelak, I would like the price for: medical invitation and treatment visa'},
-  kaym:{tab:'Kaymakamlık',title:'Document certification at the Kaymakamlık',
-    lede:'Certification and Kaymakamlık procedures without losing your day asking which counter is the right one. We prepare the documents in the required order and push the transaction through until it comes out certified.',
-    pts:['<b>Documents checked first:</b> so you do not return the next day over one missing paper.','<b>File arrangement:</b> translations and certifications in the format the office expects.','<b>Collection follow-up:</b> we track the certified document and hand it to you.'],
-    tags:['Official certification','File preparation','Collection follow-up'],
+  kaym:{tab:'Document legalization',title:'Document legalization: Kaymakamlık, Governorate & Foreign Ministry',
+    lede:'The full legalization chain: the Kaymakamlık, then the Istanbul Governorate (Valilik) stamp, then the Turkish Ministry of Foreign Affairs stamp in Ankara. We prepare the documents in the required order and follow the file at every office until it comes out certified.',
+    pts:['<b>Kaymakamlık:</b> documents reviewed and certified at the Kaymakamlık.','<b>Istanbul Governor stamp:</b> certification at the Istanbul Governorate.','<b>Foreign Ministry stamp, Ankara:</b> final legalization for use outside Türkiye.','<b>Collection follow-up:</b> we track the certified document and hand it to you.'],
+    tags:['Kaymakamlık','Governor stamp','Foreign Ministry — Ankara','Collection follow-up'],
     sideH:'Tell us the transaction type',sideP:'Tell us which document needs certifying and we will reply with the requirements and price.',
-    wa:'Hello Dalelak, I would like the price for: Kaymakamlık document certification'}
+    wa:'Hello Dalelak, I would like the price for: document legalization (Kaymakamlık / Governorate / Foreign Ministry)'}
   }}
 };
 
@@ -460,15 +518,50 @@ function homeHTML(d){
     '<div class="kick">'+d.home.kick+'</div>'+
     '<h1>'+d.home.h1+'<span>'+d.home.sub+'</span></h1>'+
     '<p>'+d.home.p+'</p><div class="chips">'+chips+'</div><div class="grid3">'+minis+'</div></div><div>'+
-    '<svg class="compass" viewBox="0 0 500 500" role="img" aria-label="Dalelak compass">'+
-    '<circle cx="250" cy="250" r="228" fill="none" stroke="#2A8AA6" stroke-width="2" opacity=".6"/>'+
-    '<circle cx="250" cy="250" r="200" fill="none" stroke="#D19A38" stroke-width="1.4" stroke-dasharray="4 10" opacity=".85"/>'+
+    '<div class="orbit"><svg class="compass" viewBox="-80 -80 660 660" role="img" aria-label="Dalelak services">'+
+    '<circle cx="250" cy="250" r="292" fill="none" stroke="#2A8AA6" stroke-width="1" stroke-dasharray="2 9" opacity=".55"/>'+
+    '<circle class="spin" cx="250" cy="250" r="228" fill="none" stroke="#2A8AA6" stroke-width="2" opacity=".6"/>'+
+    '<circle class="spin rev" cx="250" cy="250" r="200" fill="none" stroke="#D19A38" stroke-width="1.4" stroke-dasharray="4 10" opacity=".85"/>'+
     '<circle cx="250" cy="250" r="168" fill="rgba(42,138,166,.16)"/>'+
-    '<g stroke="#EBC57C" stroke-width="2" opacity=".75"><line x1="250" y1="34" x2="250" y2="70"/><line x1="250" y1="430" x2="250" y2="466"/><line x1="34" y1="250" x2="70" y2="250"/><line x1="430" y1="250" x2="466" y2="250"/></g>'+
-    '<g class="needle"><path d="M250 92 L288 250 L250 408 L212 250 Z" fill="#D19A38"/><path d="M250 92 L288 250 L250 250 Z" fill="#EBC57C"/><path d="M250 408 L212 250 L250 250 Z" fill="#EAF3F7" opacity=".85"/></g>'+
+    '<line class="ray" x1="250" y1="250" x2="250" y2="-42" stroke="#EBC57C" stroke-width="1.6" stroke-dasharray="3 6" opacity="0"/>'+
+    '<g class="needle-rot"><g class="needle"><path d="M250 92 L288 250 L250 408 L212 250 Z" fill="#D19A38"/><path d="M250 92 L288 250 L250 250 Z" fill="#EBC57C"/><path d="M250 408 L212 250 L250 250 Z" fill="#EAF3F7" opacity=".85"/></g></g>'+
     '<circle cx="250" cy="250" r="15" fill="#08202F" stroke="#EBC57C" stroke-width="3"/>'+
     '<text x="250" y="332" text-anchor="middle" font-family="'+(lang==='ar'?'Noto Kufi Arabic':'Sora')+', sans-serif" font-size="34" font-weight="700" fill="#EAF3F7">'+label+'</text>'+
-    '<text x="250" y="360" text-anchor="middle" font-size="15" letter-spacing="6" fill="#D19A38">DALELAK</text></svg></div></div></section>';
+    '<text x="250" y="360" text-anchor="middle" font-size="15" letter-spacing="6" fill="#D19A38">DALELAK</text>'+
+    ORDER.map(function(k,n){
+      var a=(-90+n*360/ORDER.length)*Math.PI/180, x=(250+292*Math.cos(a)).toFixed(1), y=(250+292*Math.sin(a)).toFixed(1);
+      return '<g class="orb-i" data-k="'+k+'" data-n="'+n+'" tabindex="0" role="button" aria-label="'+d.s[k].tab+'" transform="translate('+x+' '+y+')">'+
+        '<g class="orb-b"><circle r="34"/><svg x="-16" y="-16" width="32" height="32" viewBox="0 0 24 24">'+ICON[k]+'</svg></g></g>';
+    }).join('')+
+    '</svg><div class="orb-cap" aria-live="polite"><b id="orbName"></b><small id="orbHint">'+(lang==='ar'?'اضغط على أي خدمة':'Tap any service')+'</small></div></div></div></div></section>';
+}
+
+var ROUTES = {
+  ar:{kaym:['القائم مقام','ولاية إسطنبول','الخارجية — أنقرة'],
+      visa:['من أي دولة','دعوة المشفى','الفيزا العلاجية','بدء العلاج']},
+  en:{kaym:['Kaymakamlık','Istanbul Governorate','Foreign Ministry, Ankara'],
+      visa:['Any country','Hospital invitation','Treatment visa','Treatment starts']}
+};
+var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function routeHTML(k){
+  var L = (ROUTES[lang]||ROUTES.ar)[k]; if(!L) return '';
+  var n=L.length, rtl=(lang==='ar'), nar=innerWidth<560, W=nar?340:600, x0=nar?44:70, x1=nar?296:530, y=nar?70:64, D=7, fs=nar?13:15, H=nar?140:130;
+  var xs=L.map(function(_,i){ var f=i/(n-1); return rtl ? x1-(x1-x0)*f : x0+(x1-x0)*f; });
+  var path='M'+xs[0]+' '+y+' L'+xs[n-1]+' '+y;
+  var out='<div class="scene" aria-hidden="true"><svg viewBox="0 0 '+W+' '+H+'">'+
+    '<path class="route-line" d="'+path+'"/>';
+  xs.forEach(function(x,i){
+    var t=(0.8*i/(n-1)); var t2=Math.min(t+0.04,0.9);
+    out+='<g class="stop"><circle cx="'+x+'" cy="'+y+'" r="15"/>'+
+      '<g transform="translate('+x+' '+y+')"><g><circle r="15" fill="#D19A38" stroke="#EBC57C" stroke-width="2"/>'+
+      '<path d="M-6 0 L-1.5 5 L7 -5" fill="none" stroke="#08202F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'+
+      (RM?'':'<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;'+t.toFixed(3)+';'+t2.toFixed(3)+';0.94;1" dur="'+D+'s" repeatCount="indefinite"/>'+
+        '<animateTransform attributeName="transform" type="scale" values="1.8;1.8;1;1;1" keyTimes="0;'+t.toFixed(3)+';'+t2.toFixed(3)+';0.94;1" dur="'+D+'s" repeatCount="indefinite"/>')+
+      '</g></g>'+
+      '<text x="'+x+'" y="'+(nar&&i%2?y-28:y+40)+'" text-anchor="middle" font-size="'+fs+'">'+L[i]+'</text></g>';
+  });
+  if(!RM) out+='<circle class="route-dot" r="7"><animateMotion dur="'+D+'s" repeatCount="indefinite" path="'+path+'" keyPoints="0;1;1" keyTimes="0;0.8;1" calcMode="linear"/></circle>';
+  return out+'</svg></div>';
 }
 
 function svcHTML(d, k){
@@ -477,7 +570,7 @@ function svcHTML(d, k){
     '<div class="box"><div class="svc-head"><div class="svc-ico"><svg viewBox="0 0 24 24">'+ICON[k]+'</svg></div><h2>'+s.title+'</h2></div>'+
     '<p class="lede">'+s.lede+'</p>'+
     '<ul class="pts">'+s.pts.map(function(p){return '<li><span>'+p+'</span></li>';}).join('')+'</ul>'+
-    '<div class="tags">'+s.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div></div>'+
+    '<div class="tags">'+s.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div>'+routeHTML(k)+'</div>'+
     '<div class="box side"><h3>'+s.sideH+'</h3><p>'+s.sideP+'</p>'+
     '<a class="price" target="_blank" rel="noopener" href="'+wa(s.wa)+'">'+WA_SVG+d.price+'</a>'+
     '<p class="note">'+d.note+'</p></div></div></section>';
@@ -545,6 +638,38 @@ function render(){
     b.setAttribute('aria-pressed', b.dataset.l === lang ? 'true' : 'false');
   });
   show(current, false);
+  startOrbit(d);
+}
+
+var orbT = null;
+function startOrbit(d){
+  if(orbT){ clearInterval(orbT); orbT=null; }
+  var root=document.querySelector('.orbit'); if(!root) return;
+  var items=[].slice.call(root.querySelectorAll('.orb-i')), rot=root.querySelector('.needle-rot'),
+      ray=root.querySelector('.ray'), name=document.getElementById('orbName'), i=0, turns=0, paused=false;
+  function point(n){
+    items.forEach(function(el){ el.classList.toggle('on', +el.dataset.n===n); });
+    var a = n*360/items.length + turns*360;
+    rot.style.transform='rotate('+a+'deg)'; ray.style.transform='rotate('+a+'deg)';
+    root.classList.add('live');
+    name.classList.add('swap');
+    setTimeout(function(){ name.textContent=d.s[items[n].dataset.k].tab; name.classList.remove('swap'); }, 220);
+  }
+  items.forEach(function(el){
+    el.addEventListener('click', function(){ show(el.dataset.k, true); });
+    el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); show(el.dataset.k, true); } });
+    el.addEventListener('mouseenter', function(){ paused=true; i=+el.dataset.n; point(i); });
+    el.addEventListener('mouseleave', function(){ paused=false; });
+    el.addEventListener('focus', function(){ paused=true; i=+el.dataset.n; point(i); });
+    el.addEventListener('blur', function(){ paused=false; });
+  });
+  setTimeout(function(){ point(0); }, RM?0:1900);
+  if(RM) return;
+  orbT=setInterval(function(){
+    if(paused || document.hidden || current!=='home') return;
+    i=(i+1)%items.length; if(i===0) turns++;
+    point(i);
+  }, 2300);
 }
 
 Array.prototype.forEach.call(document.querySelectorAll('.langs button'), function(b){

@@ -209,14 +209,7 @@ footer{border-top:1px solid var(--line);background:rgba(7,18,15,.55)}
 .film .over .row{margin-top:20px;display:flex;gap:11px;justify-content:center;flex-wrap:wrap}
 .film.key::after{background:linear-gradient(180deg,rgba(7,18,15,.5),rgba(10,26,20,.25) 40%,rgba(7,18,15,.78))}
 .film.key .over b{color:#F3D7AE}
-/* the key turns with the scroll */
-.film.key{height:clamp(420px,86svh,760px)}
-@media(max-width:820px){.film.key{height:clamp(360px,62svh,560px)}}
-.film .turn{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;opacity:0;transition:opacity .9s ease}
-.film .turn.on{opacity:1}
-.film .poster{transition:opacity .9s ease}
-.film.key .over{align-content:end;padding-bottom:clamp(26px,6svh,64px)}
-@media(prefers-reduced-motion:reduce){.film video,.film .turn{display:none}}
+@media(prefers-reduced-motion:reduce){.film video{display:none}}
 
 /* alive buttons */
 .btn,.scn,.snd{will-change:transform}
@@ -1453,33 +1446,15 @@ ORB.paint();
     addEventListener('load',()=>setTimeout(step, innerWidth>820?400:1400),{once:true});
     document.addEventListener("visibilitychange",()=>{if(!cur)return;document.hidden?cur.pause():cur.play().catch(()=>{});});
   }
-  /* the key itself: a real turntable, one full turn driven by the scroll */
+  /* the one titled moment keeps its own clip of the key */
   if(band && !RM && !save){
-    const sm=innerWidth<820;
-    const C=sm?{src:"/assets/film/keyturn-sm.webp",c:5,n:15,fw:480,fh:271,fx:.42}
-              :{src:"/assets/film/keyturn.webp",  c:6,n:30,fw:560,fh:316,fx:.47};
-    const cv=document.createElement("canvas");cv.className="turn";cv.setAttribute("aria-hidden","true");
-    band.insertBefore(cv,band.querySelector(".over"));
-    const ctx=cv.getContext("2d",{alpha:false});
-    let img=null,last=-1,W=0,H=0,tick=false;
-    const size=()=>{const r=band.getBoundingClientRect();const d=Math.min(devicePixelRatio||1,1.6);
-      W=Math.max(1,Math.round(r.width*d));H=Math.max(1,Math.round(r.height*d));cv.width=W;cv.height=H;last=-1;};
-    const draw=i=>{if(!img||i===last)return;last=i;
-      const sx=(i%C.c)*C.fw, sy=Math.floor(i/C.c)*C.fh;
-      const s=Math.max(W/C.fw,H/C.fh), dw=C.fw*s, dh=C.fh*s;
-      const dx=Math.min(0,Math.max(W-dw, W/2-C.fx*dw));
-      ctx.drawImage(img,sx,sy,C.fw,C.fh,dx,(H-dh)/2,dw,dh);};
-    const upd=()=>{tick=false;const r=band.getBoundingClientRect();
-      const p=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));
-      draw(Math.min(C.n-1,Math.floor(p*C.n)));};
-    const onScroll=()=>{if(!tick){tick=true;requestAnimationFrame(upd);}};
-    new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();
-      img=new Image();img.decoding="async";
-      img.onload=()=>{size();upd();cv.classList.add("on");
-        const p=band.querySelector(".poster");if(p)p.style.opacity=0;
-        addEventListener("scroll",onScroll,{passive:true});
-        addEventListener("resize",()=>{size();upd();},{passive:true});};
-      img.src=C.src;},{rootMargin:"600px 0px"}).observe(band);
+    const v=document.createElement("video");v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute("playsinline","");
+    v.preload="none";const wb=v.canPlayType('video/webm; codecs="vp9"');
+    v.src="/assets/film/shot5"+(wb?".webm":".mp4");
+    band.insertBefore(v,band.querySelector(".over"));
+    new IntersectionObserver(es=>es.forEach(x=>{
+      if(x.isIntersecting){v.play().catch(()=>{});v.classList.add("on");}else{v.pause();v.classList.remove("on");}
+    }),{threshold:.25}).observe(band);
   }
   document.querySelectorAll(".btn").forEach(b=>b.addEventListener("pointermove",e=>{
     const r=b.getBoundingClientRect();b.style.setProperty("--bx",(e.clientX-r.left)+"px");
