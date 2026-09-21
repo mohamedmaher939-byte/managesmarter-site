@@ -531,6 +531,20 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
 .top{background:rgba(7,18,15,.75)}
 /* the film reads better a touch darker and softer */
 .backdrop::after{background:linear-gradient(180deg,rgba(7,18,15,.78),rgba(7,18,15,.84) 40%,rgba(7,18,15,.90));backdrop-filter:blur(3px)}
+
+/* hero: the real system on a phone */
+.tourph{justify-self:center;margin:0;width:min(290px,70vw);position:relative}
+.tourph .tsc{position:relative;aspect-ratio:400/716;border-radius:34px;overflow:hidden;background:#0B1F1A;
+  border:9px solid #0A1411;outline:1px solid rgba(255,255,255,.14);
+  box-shadow:0 50px 90px -40px rgba(0,0,0,.9),0 0 0 1px rgba(0,0,0,.4),0 0 80px -20px rgba(143,212,191,.25)}
+.tourph .tsc img,.tourph .tsc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.tourph .tsc video{opacity:0;transition:opacity .6s}
+.tourph .tsc video.on{opacity:1}
+.tourph figcaption{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;color:var(--muted)}
+.tourph figcaption i{width:8px;height:8px;border-radius:50%;background:#E0A458;box-shadow:0 0 0 0 rgba(224,164,88,.6);animation:tping 2s infinite}
+@keyframes tping{70%{box-shadow:0 0 0 9px rgba(224,164,88,0)}100%{box-shadow:0 0 0 0 rgba(224,164,88,0)}}
+@media(min-width:940px){.tourph{width:300px}}
+@media(prefers-reduced-motion:reduce){.tourph figcaption i{animation:none}}
 </style>
 </head>
 <body>
@@ -588,21 +602,13 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
       <small data-i="hnote"></small>
     </div>
 
-    <div class="stage">
-      <div class="orb chaos" id="orb" role="img" aria-labelledby="orbT">
-        <span class="sr" id="orbT" data-i="orb_alt"></span>
-        <svg class="orb-lines" aria-hidden="true"></svg>
-        <div class="core" aria-hidden="true">
-          <svg viewBox="0 0 32 32"><rect x="2" y="2" width="13" height="13" rx="3" fill="#fff"/><rect x="17" y="2" width="13" height="13" rx="3" fill="#CFE3DC"/><rect x="2" y="17" width="13" height="13" rx="3" fill="#CFE3DC"/><rect x="17.8" y="17.8" width="13" height="13" rx="3" fill="#E7B36A" transform="rotate(-9 24.3 24.3)"/></svg>
-          <b>Manage Smarter</b>
-        </div>
-        <i class="dot" aria-hidden="true"></i>
+    <figure class="tourph">
+      <div class="tsc">
+        <img src="/assets/film/app-tour.webp" alt="" width="400" height="716" decoding="async">
+        <video id="tour" muted playsinline loop preload="none" aria-hidden="true"></video>
       </div>
-      <div class="bar">
-        <span data-i="asm_state" id="orbCap" aria-live="polite"></span>
-        <small class="hint" data-i="orb_hint"></small>
-        <button class="btn sm ghost" id="asmBtn"></button>
-      </div>
+      <figcaption><i></i><span data-i="phone_cap"></span></figcaption>
+    </figure>
     </div>
   </div>
 </section>
@@ -1164,6 +1170,7 @@ p3a:["لوحة تجمع كل الفروع","One dashboard across all campuses","
 p3b:["تقارير مقارنة بين المدارس","Comparative reports between schools","Okullar arası karşılaştırmalı raporlar"],
 p3c:["تعديلات خاصة بمجموعتكم","Adjustments specific to your group","Grubunuza özel düzenlemeler"],
 pr_cta:["اطلب عرضًا","Request a quote","Teklif isteyin"],
+phone_cap:["لقطة حقيقية من داخل النظام","A real look inside the system","Sistemin içinden gerçek bir görüntü"],
 pr_q:["عرض سعر خلال ٢٤ ساعة","Quote within 24 hours","24 saatte teklif"],
 pr_note:["الأرقام النهائية تُحدَّد بعد مكالمة قصيرة — عدد الطلاب والأنظمة المطلوبة يغيّران السعر.",
          "Final figures follow a short call — student numbers and the systems you need change the price.",
@@ -1218,6 +1225,7 @@ if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){showPane(0);c
 /* hero: scattered school data -> one organized system.
    Plain DOM + one small SVG. The animation loop runs only while the scene is visible. */
 window.ORB=(()=>{
+  if(!document.getElementById("orb")) return null;
   const el=$("#orb"), svg=el.querySelector(".orb-lines"), dot=el.querySelector(".dot"),
         cap=$("#orbCap"), btn=$("#asmBtn");
   const RM=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1327,7 +1335,7 @@ window.ORB=(()=>{
   size(); N.forEach(o=>pos(o,0));
   return {paint};
 })();
-ORB.paint();
+if(window.ORB) ORB.paint();
 
 /* 3D layer: reveal-from-depth on scroll, scroll-driven campus, pointer tilt on scene cards */
 (()=>{
@@ -1439,5 +1447,20 @@ ORB.paint();
 })();
 </script>
 
+<script>
+/* hero phone: plays the real app tour only while it is on screen */
+(()=>{const v=document.getElementById("tour");if(!v)return;
+  const RM=matchMedia("(prefers-reduced-motion: reduce)").matches, save=navigator.connection&&navigator.connection.saveData;
+  if(RM||save)return;
+  let ready=false;
+  new IntersectionObserver(es=>es.forEach(x=>{
+    if(x.isIntersecting){
+      if(!ready){ready=true;v.src="/assets/film/app-tour"+(v.canPlayType('video/webm; codecs="vp9"')?".webm":".mp4");
+        v.addEventListener("playing",()=>v.classList.add("on"),{once:true});}
+      v.play().catch(()=>{});
+    }else v.pause();
+  }),{threshold:.3}).observe(v);
+})();
+</script>
 </body>
 </html>

@@ -521,6 +521,26 @@
         "men-only"
       ],
       "created": "2026-09-20"
+    },
+    {
+      "id": "ms-app-tour",
+      "type": "video",
+      "source": "Maher's iPhone screen recording of the live demo",
+      "prompt": "real demo walkthrough: portal, PDP dashboard, calendar, discipline, tasks, admin",
+      "model": "none (real footage) — cropped status/Safari bars, loading second removed",
+      "dimensions": "400×716, 30fps",
+      "duration": "17.9s loop, muted",
+      "file": "assets/film/app-tour.mp4 (+ .webm, .webp poster)",
+      "used_in": [
+        "index.html hero phone"
+      ],
+      "tags": [
+        "real",
+        "app",
+        "demo",
+        "hero"
+      ],
+      "created": "2026-09-21"
     }
   ],
   "notes": "Videos: H.264 mp4 + VP9 webm; page picks webm when supported, lazy-loads on scroll, pauses off-screen, skipped on data-saver/reduced-motion. Generated during the Higgsfield MCP Plus trial (Sept 2026). Story frames: the key's brass tag was left blank by the model and engraved 'Manage Smarter' in a browser render (scratchpad/brand/engrave.html), so the wording stays editable. Film: the six shots play in order as the page's fixed backdrop (started after load, paused when the tab is hidden), plus one titled band for the key before pricing; skipped on reduced-motion and data-saver. People in the film: men and boys only."
