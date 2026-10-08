@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manage Smarter — إدارة مدرسية في مكان واحد</title>
 <meta name="description" content="منصة تجمع أنظمة تشغيل المدرسة — الأنشطة والتقويم، الانضباط، التسجيل ومتابعة أولياء الأمور، ومهام المعلمين — في مكان واحد بثلاث لغات.">
+<link rel="canonical" href="https://managesmarter.app/">
+<meta name="theme-color" content="#07120F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Manage Smarter">
+<meta property="og:title" content="Manage Smarter — إدارة مدرسية في مكان واحد">
+<meta property="og:description" content="الأنشطة والتقويم، الانضباط، أولياء الأمور والمهام في منصة واحدة بثلاث لغات. جرّب النظام الآن بدون تسجيل.">
+<meta property="og:url" content="https://managesmarter.app/">
+<meta property="og:image" content="https://managesmarter.app/assets/social/li-01-intro.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Manage Smarter","url":"https://managesmarter.app/","email":"info@managesmarter.app","telephone":"+905452295764","logo":"https://managesmarter.app/assets/social/li-01-intro.jpg"},{"@type":"SoftwareApplication","name":"Manage Smarter","applicationCategory":"EducationalApplication","operatingSystem":"Web","inLanguage":["ar","en","tr"],"url":"https://managesmarter.app/","offers":{"@type":"Offer","priceCurrency":"USD","price":"300","description":"Yearly subscription per system, from USD 300"}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -561,6 +571,38 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
 }
 @media(min-width:940px){.tourph{display:grid;grid-template-columns:300px 1fr;column-gap:22px;width:auto;align-items:center}
   .tourph figcaption{grid-column:1;grid-row:2}.tourph .chap{grid-column:2;grid-row:1;margin:0}}
+
+/* ---------- v2: contrast, rhythm, proof, quote form ---------- */
+:root{--muted:#C6DAD3}
+.trust p{color:#C9DDD6}
+.chaos li p,.plan .per,.note,.try-note,.hero small{color:#C6DAD3}
+h1{font-size:clamp(28px,4.1vw,44px)}
+.ba{display:grid;gap:12px;margin-top:28px}
+.ba .row{display:grid;gap:10px;grid-template-columns:1fr;align-items:stretch}
+@media(min-width:760px){.ba .row{grid-template-columns:1fr 1fr}}
+.ba .b,.ba .a{padding:16px 18px;border-radius:12px;border:1px solid var(--line);font-size:15.5px;line-height:1.6}
+.ba .b{background:rgba(255,255,255,.04);color:#BCD0C9}
+.ba .a{background:rgba(62,140,122,.22);border-color:rgba(62,140,122,.6);color:#fff}
+.ba small{display:block;font:500 12px "Rubik",sans-serif;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;opacity:.8}
+.ba .a small{color:#F3D7AE;opacity:1}
+.priv{margin-top:22px;padding:18px 20px;border-radius:14px;border:1px solid rgba(192,132,52,.55);background:rgba(192,132,52,.10);color:#fff;font-size:15.5px}
+.priv b{color:#F3D7AE;font-family:"Rubik","Tajawal",sans-serif}
+.quote{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3.6vw,38px)}
+.quote h3{font-size:clamp(19px,2.4vw,24px);color:var(--ink);margin-bottom:4px}
+.quote .qs{color:var(--muted);font-size:15px;margin-bottom:18px}
+.qgrid{display:grid;gap:14px}
+@media(min-width:760px){.qgrid{grid-template-columns:1fr 1fr 1fr}}
+.quote label{display:block;font-size:14px;color:var(--ink);font-weight:500;margin-bottom:5px}
+.quote input[type=text],.quote input[type=number]{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--ink)}
+.quote input::placeholder{color:#93AEA6}
+.chk{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chk label{display:inline-flex;align-items:center;gap:7px;margin:0;padding:9px 13px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-weight:400;font-size:14.5px;background:rgba(255,255,255,.05)}
+.chk input{accent-color:#3E8C7A;width:16px;height:16px}
+.qact{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.qnote{margin-top:12px;font-size:13px;color:var(--muted)}
+.plan .price{font-size:21px;letter-spacing:0}
+.pfree{margin-top:22px;padding:12px 16px;border-radius:12px;background:rgba(192,132,52,.14);border:1px solid rgba(192,132,52,.5);color:#fff;font-size:15px}
+footer .wrap a.pv{color:inherit;opacity:.85;font-size:14px}
 </style>
 </head>
 <body>
@@ -673,6 +715,19 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
 
 
 
+<section id="ba">
+  <div class="wrap">
+    <h2 data-i="ba_h"></h2>
+    <div class="ba">
+      <div class="row"><div class="b"><small data-i="ba_b"></small><span data-i="ba1b"></span></div><div class="a"><small data-i="ba_a"></small><span data-i="ba1a"></span></div></div>
+      <div class="row"><div class="b"><small data-i="ba_b"></small><span data-i="ba2b"></span></div><div class="a"><small data-i="ba_a"></small><span data-i="ba2a"></span></div></div>
+      <div class="row"><div class="b"><small data-i="ba_b"></small><span data-i="ba3b"></span></div><div class="a"><small data-i="ba_a"></small><span data-i="ba3a"></span></div></div>
+      <div class="row"><div class="b"><small data-i="ba_b"></small><span data-i="ba4b"></span></div><div class="a"><small data-i="ba_a"></small><span data-i="ba4a"></span></div></div>
+      <div class="row"><div class="b"><small data-i="ba_b"></small><span data-i="ba5b"></span></div><div class="a"><small data-i="ba_a"></small><span data-i="ba5a"></span></div></div>
+    </div>
+  </div>
+</section>
+
 <section id="how" class="chaos">
   <div class="wrap">
     <h2 data-i="hw_h"></h2>
@@ -714,6 +769,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
         <p data-i="wh_p3"></p>
       </div>
     </div>
+    <div class="priv"><b data-i="priv_h"></b> <span data-i="priv_p"></span></div>
   </div>
 </section>
 
@@ -743,7 +799,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
     <div class="plans">
       <div class="plan">
         <h3 data-i="p1h"></h3>
-        <div class="price" data-i="pr_q"></div>
+        <div class="price" data-i="pr_q1"></div>
         <div class="per" data-i="p1per"></div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 7"/></svg><span data-i="p1a"></span></li>
@@ -754,7 +810,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
       </div>
       <div class="plan mid">
         <h3 data-i="p2h"></h3>
-        <div class="price" data-i="pr_q"></div>
+        <div class="price" data-i="pr_q2"></div>
         <div class="per" data-i="p2per"></div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 7"/></svg><span data-i="p2a"></span></li>
@@ -766,7 +822,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
       </div>
       <div class="plan">
         <h3 data-i="p3h"></h3>
-        <div class="price" data-i="pr_q"></div>
+        <div class="price" data-i="pr_q3"></div>
         <div class="per" data-i="p3per"></div>
         <ul>
           <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 7"/></svg><span data-i="p3a"></span></li>
@@ -776,6 +832,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
         <a class="btn ghost" href="#contact" data-i="pr_cta"></a>
       </div>
     </div>
+    <div class="pfree" data-i="pr_free"></div>
     <p class="note" data-i="pr_note"></p>
     <p style="margin-top:14px"><a class="btn ghost" href="https://app.managesmarter.app/pricing/" target="_blank" rel="noopener" data-i="pr_full"></a></p>
   </div>
@@ -799,7 +856,31 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
         </a>
       </div>
     </div>
-  </div>
+  <div class="quote" id="quote">
+      <h3 data-i="qf_h"></h3>
+      <p class="qs" data-i="qf_s"></p>
+      <div class="qgrid">
+        <div><label for="qSchool" data-i="qf_school"></label><input id="qSchool" type="text" autocomplete="organization" data-ph="qf_school_ph"></div>
+        <div><label for="qStud" data-i="qf_stud"></label><input id="qStud" type="number" inputmode="numeric" min="1" data-ph="qf_stud_ph"></div>
+        <div><label for="qName" data-i="qf_name"></label><input id="qName" type="text" autocomplete="name" data-ph="qf_name_ph"></div>
+      </div>
+      <label style="margin-top:16px" data-i="qf_sys"></label>
+      <div class="chk" id="qSys">
+        <label><input type="checkbox" value="1"><span data-i="s1h0"></span></label>
+        <label><input type="checkbox" value="2"><span data-i="s2h0"></span></label>
+        <label><input type="checkbox" value="3"><span data-i="s3h0"></span></label>
+        <label><input type="checkbox" value="4"><span data-i="s4h0"></span></label>
+        <label><input type="checkbox" value="5"><span data-i="s5h0"></span></label>
+        <label><input type="checkbox" value="6"><span data-i="s6h0"></span></label>
+      </div>
+      <div class="qact">
+        <button type="button" class="btn wa" id="qWa" data-i="qf_wa"></button>
+        <button type="button" class="btn ghost" id="qMail" data-i="qf_mail"></button>
+        <button type="button" class="btn ghost" id="qCall" data-i="qf_call"></button>
+      </div>
+      <p class="qnote" data-i="qf_note"></p>
+    </div>
+    </div>
 </section>
 
 </main>
@@ -808,6 +889,7 @@ footer{background:rgba(7,18,15,.72);color:#A9C2BB}
   <div class="wrap">
     <span>© <span id="yr"></span> Manage Smarter</span>
     <span data-i="ft"></span>
+    <a class="pv" href="/privacy/" data-i="pv"></a>
     <span class="soc">
       <a href="https://www.linkedin.com/company/145197827" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21h-4z"/></svg></a>
       <a href="https://www.instagram.com/managesmarter1" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.25.06-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.45 2.21 8.85 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-.9.04-1.38.19-1.7.31-.43.17-.73.37-1.05.69-.32.32-.52.62-.69 1.05-.12.32-.27.8-.31 1.7C3.45 8.86 3.44 9.22 3.44 12s.01 3.14.07 4.38c.4.9.19 1.38.31 1.7.17.43.37.73.69 1.05.32.32.62.52 1.05.69.32.12.8.27 1.7.31 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.38-.19 1.7-.31.43-.17.73-.37 1.05-.69.32-.32.52-.62.69-1.05.12-.32.27-.8.31-1.7.06-1.24.07-1.6.07-4.38s-.01-3.14-.07-4.38c-.04-.9-.19-1.38-.31-1.7a2.83 2.83 0 0 0-.69-1.05 2.83 2.83 0 0 0-1.05-.69c-.32-.12-.8-.27-1.7-.31C15.5 4.01 15.14 4 12 4zm0 3.03a4.97 4.97 0 1 1 0 9.94 4.97 4.97 0 0 1 0-9.94zm0 1.8a3.17 3.17 0 1 0 0 6.34 3.17 3.17 0 0 0 0-6.34zm5.2-3.1a1.16 1.16 0 1 1 0 2.32 1.16 1.16 0 0 1 0-2.32z"/></svg></a>
@@ -1011,28 +1093,28 @@ sy_h:["أنظمة تعمل معًا، لا أدوات متفرقة","Systems tha
 sy_sub:["ابدأ بنظام واحد وأضف الباقي وقتما تحتاج. الحساب واحد لكل الأنظمة، والصلاحيات تُحدَّد لكل موظف على حدة.",
         "Start with one system and add the rest when you need them. One account covers all of them, with permissions set per staff member.",
         "Tek bir sistemle başlayın, gerektiğinde diğerlerini ekleyin. Tek hesap hepsini kapsar; yetkiler personel bazında belirlenir."],
-s1h:["التقويم والأنشطة","Calendar & activities","Takvim ve etkinlikler"],
+s1h:["التقويم والأنشطة: بلا تعارض في المواعيد","Calendar & activities: no clashing dates","Takvim ve etkinlikler: çakışan tarih yok"],
 s1p:["خطة السنة كاملة: الأنشطة والرحلات والاجتماعات والامتحانات، مع تنبيه فوري عند أي تعارض في المواعيد.",
      "The full year in one plan — activities, trips, meetings and exams — flagging any clash the moment it appears.",
      "Tüm yıl tek planda: etkinlikler, geziler, toplantılar ve sınavlar; çakışmalar anında işaretlenir."],
 s1t:["يمكن نشره لأولياء الأمور برابط عام","Publishable to parents via a public link","Velilere herkese açık bağlantıyla yayınlanabilir"],
-s2h:["الانضباط والإرشاد","Discipline & guidance","Disiplin ve rehberlik"],
+s2h:["الانضباط والإرشاد: حالة موثّقة حتى الإغلاق","Discipline & guidance: every case documented to closure","Disiplin ve rehberlik: kapanışa kadar belgelenmiş vaka"],
 s2p:["تسجيل الحالات ومتابعتها حتى الإغلاق، وسجل متصل لكل طالب بدل أوراق متفرقة.",
      "Log incidents and follow them to closure, with one connected record per student instead of loose paperwork.",
      "Vakaları kaydedin ve kapanana dek izleyin; dağınık evrak yerine öğrenci başına tek kayıt."],
-s3h:["تجربة أولياء الأمور","Parent experience","Veli deneyimi"],
+s3h:["أولياء الأمور: كل ملاحظة لها مسؤول","Parents: every note has an owner","Veliler: her notun bir sorumlusu var"],
 s3p:["كل تواصل مع الأسرة يُسجَّل ويُحال للقسم المختص ويُتابَع، مع تقارير رضا جاهزة في موعدها.",
      "Every family contact is logged, referred to the right department and followed up, with satisfaction reports ready on schedule.",
      "Her veli teması kaydedilir, doğru birime yönlendirilir ve takip edilir; memnuniyet raporları zamanında hazır olur."],
-s4h:["مهام الفريق","Team tasks","Ekip görevleri"],
+s4h:["مهام الفريق: من المسؤول ومتى","Team tasks: who owns it and by when","Ekip görevleri: kim ve ne zaman"],
 s4p:["ما طُلب من مَن ومتى يُسلَّم — بدل متابعة القرارات في مجموعات الواتساب.",
      "Who was asked for what, and when it is due — instead of chasing decisions through WhatsApp groups.",
      "Kimden ne istendi, ne zaman teslim — kararları WhatsApp gruplarında kovalamak yerine."],
-s5h:["التسجيل والاستبقاء","Enrolment & retention","Kayıt ve devamlılık"],
+s5h:["التسجيل والاستبقاء: اعرف قرار الأسرة مبكرًا","Enrolment & retention: know the family's decision early","Kayıt ve devamlılık: ailenin kararını erken öğrenin"],
 s5p:["متابعة نية الاستمرار لكل أسرة مبكرًا، وتصنيف الحالات المعرّضة للانسحاب قبل أن يصبح القرار نهائيًا.",
      "Track each family's intention to continue early, and flag at-risk cases before the decision becomes final.",
      "Her ailenin devam niyetini erkenden izleyin; karar kesinleşmeden riskli durumları işaretleyin."],
-s6h:["تقارير للإدارة","Reports for management","Yönetim raporları"],
+s6h:["تقارير الإدارة: جاهزة في دقيقة","Management reports: ready in a minute","Yönetim raporları: bir dakikada hazır"],
 s6p:["الأرقام تُحسب من البيانات المسجّلة، فالتقرير يُطبع في دقيقة بدل أن يُجمع في ليلة.",
      "Figures are calculated from the records themselves, so a report prints in a minute instead of taking a night.",
      "Rakamlar kayıtlardan hesaplanır; rapor bir gecede değil bir dakikada çıkar."],
@@ -1077,7 +1159,7 @@ pr_sub:["اشتراك سنوي يشمل التجهيز والتدريب والد
         "An annual subscription covering setup, training, support and updates. No separate installation fee.",
         "Kurulum, eğitim, destek ve güncellemeleri kapsayan yıllık abonelik. Ayrı kurulum ücreti yok."],
 p1h:["نظام واحد","Single system","Tek sistem"],
-p1per:["سنويًا · حتى ٣٠٠ طالب","per year · up to 300 students","yıllık · 300 öğrenciye kadar"],
+p1per:["سنويًا للنظام الواحد · حتى ٢٥٠ طالب، ويزيد السعر تدريجيًا مع العدد","per year per system · up to 250 students, rising gradually with size","sistem başına yıllık · 250 öğrenciye kadar, sayıyla kademeli artar"],
 p1a:["نظام واحد تختاره","One system of your choice","Seçtiğiniz bir sistem"],
 p1b:["مستخدمون بلا حد","Unlimited users","Sınırsız kullanıcı"],
 p1c:["نقل بياناتكم الحالية","Your existing data moved across","Mevcut verilerinizin aktarımı"],
@@ -1112,6 +1194,52 @@ co_sub:["احكِ لنا كيف تدار مدرستك اليوم، ونقول ل
         "Okulunuzun bugün nasıl yönetildiğini anlatın; size açıkça uygun olup olmadığını söyleyelim."],
 co_wa:["واتساب","WhatsApp","WhatsApp"],
 co_mail:["البريد الإلكتروني","Email","E-posta"],
+s1h0:["التقويم والأنشطة","Calendar & activities","Takvim ve etkinlikler"],
+s2h0:["الانضباط والإرشاد","Discipline & guidance","Disiplin ve rehberlik"],
+s3h0:["أولياء الأمور","Parents","Veliler"],
+s4h0:["مهام الفريق","Team tasks","Ekip görevleri"],
+s5h0:["التسجيل والاستبقاء","Enrolment & retention","Kayıt ve devamlılık"],
+s6h0:["تقارير الإدارة","Management reports","Yönetim raporları"],
+pr_q1:["ابتداءً من ٣٠٠$ سنويًا","From $300 per year","Yılda 300$'dan başlayan"],
+pr_q2:["خصم حتى ١٠٪ على الباقة كاملة","Up to 10% off the full bundle","Tüm pakette %10'a kadar indirim"],
+pr_q3:["عرض خاص للمجموعات","Special group offer","Gruplara özel teklif"],
+pr_free:["مدرستك فوق ١٠٠٠ طالب؟ تحصل على خدمة مجانية عند اشتراكك في خدمتين أو أكثر.","Over 1,000 students? One service is free when you take two or more.","1.000 öğrenciyi aşan okullarda iki veya daha fazla hizmette bir hizmet ücretsizdir."],
+ba_h:["كيف يتغيّر يوم العمل","How the working day changes","Çalışma günü nasıl değişir"],
+ba_b:["قبل","Before","Önce"],
+ba_a:["بعد","After","Sonra"],
+ba1b:["الأنشطة في ملف Excel يعرفه شخص واحد","Activities live in an Excel file only one person understands","Etkinlikler yalnızca bir kişinin bildiği Excel dosyasında"],
+ba1a:["خطة سنة واحدة يراها الجميع، وتنبيه قبل أي تعارض","One year plan everyone sees, with a warning before any clash","Herkesin gördüğü tek yıllık plan, çakışmadan önce uyarı"],
+ba2b:["ملاحظات أولياء الأمور تضيع في الواتساب","Parent messages get lost in WhatsApp","Veli mesajları WhatsApp'ta kaybolur"],
+ba2a:["كل ملاحظة لها مسؤول وموعد إغلاق","Every note has an owner and a close date","Her notun sorumlusu ve kapanış tarihi var"],
+ba3b:["الانضباط في دفتر لا يُقارَن ولا يُتابَع","Discipline sits in a notebook nobody can compare or follow","Disiplin kayıtları takip edilemeyen bir defterde"],
+ba3a:["سجلّ واحد لكل طالب، ويُعرف من سجّل كل حالة","One record per student, and who logged each case is known","Her öğrenciye tek kayıt, her vakayı kimin girdiği bellidir"],
+ba4b:["تقرير الإدارة يُجمع في ليلة كاملة","The management report takes a whole night to assemble","Yönetim raporu bir gece sürer"],
+ba4a:["يُطبع في دقيقة من البيانات المسجّلة","Printed in a minute from recorded data","Kayıtlı verilerden bir dakikada basılır"],
+ba5b:["كل موظف يرى كل شيء، أو لا يرى شيئًا","Everyone sees everything, or nothing","Herkes ya her şeyi görür ya hiçbir şeyi"],
+ba5a:["كل موظف يرى ما يخصّه فقط","Each person sees only their part","Herkes yalnızca kendi alanını görür"],
+priv_h:["عملاؤنا ليسوا على هذه الصفحة، عن قصد.","Our clients are not on this page — on purpose.","Müşterilerimiz bu sayfada yok — bilerek."],
+priv_p:["السوق صغير والمدارس تفضّل الخصوصية، فلا نذكر أسماء المدارس ولا نعرض بياناتها. تجرّبون النظام على مدرسة افتراضية كاملة، ولا يُنقل أي بيان حقيقي إلا بعد اتفاق مكتوب.","The market is small and schools value privacy, so we never name a school or show its data. You try the system on a complete sample school, and no real data moves until there is a written agreement.","Pazar küçük ve okullar gizliliğe önem verir; bu yüzden hiçbir okulun adını veya verisini göstermeyiz. Sistemi tam bir örnek okulda denersiniz; yazılı anlaşma olmadan gerçek veri aktarılmaz."],
+qf_h:["اطلب عرضًا خلال ٢٤ ساعة","Request a quote within 24 hours","24 saatte teklif isteyin"],
+qf_s:["املأ ثلاث خانات وسيصلنا طلبك جاهزًا على واتساب.","Fill three fields and your request reaches us ready on WhatsApp.","Üç alanı doldurun, talebiniz WhatsApp'ta hazır ulaşsın."],
+qf_school:["اسم المدرسة","School name","Okul adı"],
+qf_school_ph:["مثال: مدرسة ...","e.g. ... School","örn. ... Okulu"],
+qf_stud:["عدد الطلاب تقريبًا","Approx. number of students","Yaklaşık öğrenci sayısı"],
+qf_stud_ph:["450","450","450"],
+qf_name:["اسمك ووظيفتك","Your name and role","Adınız ve görevi"],
+qf_name_ph:["الاسم، المدير / المنسق","Name, principal / coordinator","Ad, müdür / koordinatör"],
+qf_sys:["الأنظمة التي تهمّك","Systems you are interested in","İlgilendiğiniz sistemler"],
+qf_wa:["أرسل الطلب عبر واتساب","Send via WhatsApp","WhatsApp ile gönder"],
+qf_mail:["أو بالبريد الإلكتروني","Or by email","Veya e-posta ile"],
+qf_call:["احجز مكالمة ٢٠ دقيقة","Book a 20-minute call","20 dakikalık görüşme ayarla"],
+qf_note:["لا نحفظ بياناتك على الموقع: الطلب يُفتح في واتساب أو بريدك لتراجعه قبل أن ترسله.","We store nothing on this site: the request opens in WhatsApp or your mail app for you to review before sending.","Bu sitede veri saklamayız: talep göndermeden önce gözden geçirmeniz için WhatsApp'ta veya e-postanızda açılır."],
+pv:["الخصوصية","Privacy","Gizlilik"],
+qm_hi:["مرحبًا، أودّ عرض سعر لـ Manage Smarter.","Hello, I would like a Manage Smarter quote.","Merhaba, Manage Smarter için teklif almak istiyorum."],
+qm_school:["المدرسة","School","Okul"],
+qm_stud:["عدد الطلاب","Students","Öğrenci sayısı"],
+qm_name:["الاسم والوظيفة","Name and role","Ad ve görev"],
+qm_sys:["الأنظمة","Systems","Sistemler"],
+qm_call:["مرحبًا، أودّ حجز مكالمة ٢٠ دقيقة بخصوص Manage Smarter.","Hello, I would like to book a 20-minute call about Manage Smarter.","Merhaba, Manage Smarter hakkında 20 dakikalık bir görüşme ayarlamak istiyorum."],
+qm_sub:["طلب عرض سعر — Manage Smarter","Quote request — Manage Smarter","Teklif talebi — Manage Smarter"],
 ft:["أنظمة تشغيل للمدارس والمؤسسات التعليمية",
     "Operating systems for schools and education groups",
     "Okullar ve eğitim kurumları için işletim sistemleri"]
@@ -1128,6 +1256,7 @@ function paint(){
   });
   $$(".langs button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.l===L[LI]));
   $$("[data-alt]").forEach(e=>e.alt=D[e.dataset.alt][LI]);
+  $$("[data-ph]").forEach(e=>e.placeholder=D[e.dataset.ph][LI]);
   if(window.ORB) ORB.paint();
   document.title = LI===0 ? "Manage Smarter — إدارة مدرسية في مكان واحد"
     : LI===1 ? "Manage Smarter — school operations in one place"
@@ -1137,6 +1266,23 @@ $$(".langs button").forEach(b=>b.onclick=()=>{LI=L.indexOf(b.dataset.l);paint();
 $("#yr").textContent=new Date().getFullYear();
 paint();
 
+/* quote request: builds the message locally, nothing is stored or sent from this page */
+(function(){
+  const g=k=>D[k][LI], v=id=>($("#"+id).value||"").trim();
+  function msg(){
+    const sys=$$("#qSys input:checked").map(c=>g("s"+c.value+"h0")).join(LI===0?"، ":", ");
+    const l=[g("qm_hi")];
+    if(v("qSchool")) l.push(g("qm_school")+": "+v("qSchool"));
+    if(v("qStud")) l.push(g("qm_stud")+": "+v("qStud"));
+    if(v("qName")) l.push(g("qm_name")+": "+v("qName"));
+    if(sys) l.push(g("qm_sys")+": "+sys);
+    return l.join("\n");
+  }
+  const wa=t=>window.open("https://wa.me/905452295764?text="+encodeURIComponent(t),"_blank","noopener");
+  $("#qWa").onclick=()=>wa(msg());
+  $("#qCall").onclick=()=>wa(g("qm_call"));
+  $("#qMail").onclick=()=>{location.href="mailto:info@managesmarter.app?subject="+encodeURIComponent(g("qm_sub"))+"&body="+encodeURIComponent(msg());};
+})();
 
 /* demo panes: click to switch, and rotate on their own */
 const panes=$$(".pane"), tabs=$$(".tabs button");
