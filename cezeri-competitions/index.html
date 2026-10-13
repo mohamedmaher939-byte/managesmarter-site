@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Cezeri Chess &amp; Tennis Tournaments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Poppins:wght@400;500;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
   --maroon:#7d0f22; --deep:#4a0714; --gold:#f0b93c; --gold2:#ffd978;
@@ -36,6 +36,11 @@ h1{font-family:'Lora',Georgia,serif;font-weight:700;font-size:clamp(34px,10vw,56
    background:linear-gradient(#fff0b0,#f4c443 50%,#c2831a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 0 #5a0a18)}
 .sub{text-align:center;font-family:'Lora',Georgia,serif;font-size:clamp(16px,4.4vw,22px);letter-spacing:1px;color:var(--cream)}
 .band{margin:16px auto 0;background:var(--gold);color:var(--maroon);text-align:center;font-weight:700;font-size:clamp(13px,3.6vw,17px);padding:9px 10px;border-radius:6px;transform:rotate(-.6deg)}
+.theme{margin:14px auto 0;max-width:520px;text-align:center;direction:rtl;border:2px solid var(--gold);border-radius:18px;padding:10px 14px 12px;background:rgba(0,0,0,.18);position:relative}
+.theme small{display:block;font:500 12px 'Poppins',sans-serif;color:var(--gold2);letter-spacing:.5px;margin-bottom:2px}
+.theme b{display:block;font-family:'Amiri','Traditional Arabic',serif;font-weight:700;font-size:clamp(26px,8vw,38px);line-height:1.4;color:var(--gold2);text-shadow:0 2px 0 #5a0a18}
+.theme::before,.theme::after{content:"\2726";position:absolute;top:50%;transform:translateY(-50%);color:var(--gold);font-size:18px}
+.theme::before{right:12px}.theme::after{left:12px}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;margin:16px -4px 0;padding:8px 4px;background:linear-gradient(var(--bg2) 70%,transparent)}
 nav button{flex:1;font:700 14px 'Poppins',sans-serif;padding:11px 4px;border:2px solid var(--gold);border-radius:12px;background:transparent;color:var(--gold2);cursor:pointer}
 nav button[aria-selected="true"]{background:var(--gold);color:var(--maroon)}
@@ -93,6 +98,7 @@ footer{margin-top:30px;text-align:center;font-size:13px;color:var(--gold2);line-
   <h1>Chess &amp; Tennis</h1>
   <p class="sub">Tournament Match Schedule</p>
   <div class="band">Grades 7 &ndash; 12 &nbsp;|&nbsp; Round 1</div>
+  <div class="theme" lang="ar"><small>شعار المسابقة</small><b>«الذكاء فراسة المؤمن»</b></div>
 
   <nav role="tablist" aria-label="Sections">
     <button role="tab" aria-selected="true" data-tab="find">My match</button>
