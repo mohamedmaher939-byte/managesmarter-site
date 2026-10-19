@@ -22,12 +22,12 @@ The product itself (the school platform) is at `https://app.managesmarter.app`; 
 - Language switch ع / TR / EN. Text is filled from a JS object `D`: `key:["arabic","english","turkish"]`, and elements carry `data-i="key"`. `paint()` sets text, `lang`, `dir`, title. **Every visible string needs all three languages.**
 - Placeholders use `data-ph="key"`.
 - Sections in order: hero (phone tour) → `#systems` → `#ba` (before/after) → `#how` → trust → `#who` (+ privacy note) → `#faq` → film → `#pricing` (3 plans, "from $300/yr", free-service note, link to full pricing) → `#contact` (WhatsApp, email, quote form) → footer (privacy link).
-- Quote form builds a WhatsApp/mail message in the browser (`wa.me/905452295764`, `mailto:info@managesmarter.app`). It stores nothing and has no backend.
+- Quote form builds a WhatsApp/mail message in the browser (`wa.me/905432295764`, `mailto:info@managesmarter.app`). It stores nothing and has no backend.
 - Dark film background is the identity; keep text contrast high (muted text ≥ `#C6DAD3` on the dark base).
 
 ## Facts that must stay consistent
 - Brand: **Manage Smarter**. Pricing company: **Easylerno** (one word).
-- WhatsApp **+90 545 229 5764**, email **info@managesmarter.app**.
+- WhatsApp **+90 543 229 5764**, email **info@managesmarter.app**.
 - Prices shown: single system from $300/year (up to 250 students, rising with size); up to 10% off the full bundle; one free service for schools over 1,000 students taking two or more. If the real price list changes, change it here, in the app repo's `pricing/`, and the brochures together.
 - Hosting claims: data in the EU (Frankfurt). Do not write "daily backups" unless Maher confirmed the Supabase plan includes them.
 - No claims of customer counts or named references. Privacy callout explains why clients are not shown.
