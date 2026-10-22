@@ -35,7 +35,7 @@ function render(){
   var h='<h1>'+casEsc(data.name)+'</h1><p class="muted">'+casEsc(data.class)+' · CAS Portfolio · ملف CAS</p>'+
   '<div class="card bar"><div class="stat"><b>'+data.entries.length+'</b>Entries</div><div class="stat"><b>'+t.all+'</b>Hours</div>'+
   '<div class="stat"><b style="color:#FF6FAE">'+t.C+'</b>Creativity</div><div class="stat"><b style="color:#FFB627">'+t.A+'</b>Activity</div><div class="stat"><b style="color:#2EC4B6">'+t.S+'</b>Service</div></div>';
-  h+='<h2>'+(e.id?'Edit entry · تعديل':'Add experience · أضف تجربة')+'</h2><form id="f" class="card">'+
+  h+='<h2>CAS Presentation · العرض التعريفي</h2><div style="position:relative;padding-top:56.25%;border:2px solid #3B4373;border-radius:16px;overflow:hidden"><iframe src="/cas/" title="CAS presentation" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div><p class="muted"><a href="/cas/" target="_blank" rel="noopener">Open full screen · فتح بشاشة كاملة ↗</a></p><h2>'+(e.id?'Edit entry · تعديل':'Add experience · أضف تجربة')+'</h2><form id="f" class="card">'+
   '<input type="hidden" name="id" value="'+casEsc(e.id||'')+'">'+
   '<label>Title · العنوان</label><input name="title" required maxlength="160" value="'+casEsc(e.title||'')+'">'+
   '<div class="row"><div><label>Type · النوع</label><select name="kind">'+['experience','reflection','evidence','project'].map(function(k){return '<option'+(e.kind===k?' selected':'')+'>'+k+'</option>';}).join('')+'</select></div>'+
