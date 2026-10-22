@@ -26,13 +26,13 @@ function list(){
     try{sessionStorage.setItem('casAdmin',key);}catch(e){}
     var base=location.origin+'/cas/me/?c=';
     app.innerHTML='<div class="card"><table><tr><th>Student</th><th>Entries</th><th>C</th><th>A</th><th>S</th><th>Total h</th><th>Last</th><th></th></tr>'+
-      rows.map(function(r){return '<tr><td><a href="#" data-s="'+r.id+'">'+casEsc(r.name)+'</a></td><td>'+r.entries+'</td><td>'+r.c+'</td><td>'+r.a+'</td><td>'+r.s+'</td><td>'+r.hours+'</td><td class="muted">'+casEsc((r.last||'—').slice(0,10))+'</td><td><button class="alt" data-copy="'+casEsc(base+r.code)+'">Copy link</button></td></tr>';}).join('')+'</table></div>'+
+      rows.map(function(r){return '<tr><td><a href="#" data-s="'+r.id+'" data-c="'+casEsc(r.code)+'">'+casEsc(r.name)+'</a></td><td>'+r.entries+'</td><td>'+r.c+'</td><td>'+r.a+'</td><td>'+r.s+'</td><td>'+r.hours+'</td><td class="muted">'+casEsc((r.last||'—').slice(0,10))+'</td><td><button class="alt" data-copy="'+casEsc(base+r.code)+'">Copy link</button></td></tr>';}).join('')+'</table></div>'+
       '<p class="muted">Each “Copy link” is that student’s private personal link — send it to them only. · كل رابط خاص بالطالب، أرسله له فقط.</p>';
-    app.querySelectorAll('[data-s]').forEach(function(a){a.onclick=function(e){e.preventDefault();student(a.dataset.s);};});
+    app.querySelectorAll('[data-s]').forEach(function(a){a.onclick=function(e){e.preventDefault();student(a.dataset.s,a.dataset.c);};});
     app.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){navigator.clipboard.writeText(b.dataset.copy).then(function(){b.textContent='Copied ✓';},function(){prompt('Link',b.dataset.copy);});};});
   }).catch(function(){key='';try{sessionStorage.removeItem('casAdmin');}catch(e){}login('Wrong key / مفتاح خاطئ');});
 }
-function student(id){
+function student(id,code){
   casRpc('cas_admin_student',{p_key:key,p_id:id}).then(function(d){
     app.innerHTML='<p><a href="#" id="back">← All students · الطلاب</a></p><h2>'+casEsc(d.name)+' <span class="muted">'+casEsc(d.class)+'</span></h2>'+
       (d.entries.length?d.entries.map(function(e){return casCard(e,'<label>Teacher note · ملاحظة</label><textarea data-n="'+e.id+'" maxlength="2000">'+casEsc(e.teacher_note)+'</textarea><button class="alt" data-save="'+e.id+'">Save note</button>');}).join(''):'<p class="muted">No entries yet. · لا توجد تجارب.</p>');
