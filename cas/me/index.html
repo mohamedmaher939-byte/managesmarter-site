@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>My CAS Portfolio | ملف CAS الخاص بي</title>
+<style id="css"></style>
+</head>
+<body>
+<main>
+  <p class="muted"><a href="/cas/">← CAS slides · العرض</a></p>
+  <div id="app"><p class="muted">Loading… / جارٍ التحميل…</p></div>
+</main>
+<script src="/cas/cas.js"></script>
+<script>
+document.getElementById('css').textContent=casCSS;
+var code=new URLSearchParams(location.search).get('c')||'';
+try{if(code)localStorage.setItem('casCode',code);else code=localStorage.getItem('casCode')||'';}catch(e){}
+var app=document.getElementById('app'),data=null,editing=null;
+function load(){
+  if(!code){app.innerHTML='<p class="err">Open the personal link your coordinator sent you. · افتح الرابط الشخصي الذي أرسله لك المنسق.</p>';return;}
+  casRpc('cas_get',{p_code:code}).then(function(d){
+    if(!d){app.innerHTML='<p class="err">Link not valid. · الرابط غير صحيح.</p>';return;}
+    data=d;render();
+  }).catch(function(){app.innerHTML='<p class="err">Could not load. Try again. · تعذّر التحميل.</p>';});
+}
+function totals(){
+  var t={C:0,A:0,S:0,all:0};
+  data.entries.forEach(function(e){var h=+e.hours||0;t.all+=h;(e.strands||[]).forEach(function(s){t[s]+=h;});});
+  return t;
+}
+function render(){
+  var t=totals(),e=editing||{};
+  var h='<h1>'+casEsc(data.name)+'</h1><p class="muted">'+casEsc(data.class)+' · CAS Portfolio · ملف CAS</p>'+
+  '<div class="card bar"><div class="stat"><b>'+data.entries.length+'</b>Entries</div><div class="stat"><b>'+t.all+'</b>Hours</div>'+
+  '<div class="stat"><b style="color:#FF6FAE">'+t.C+'</b>Creativity</div><div class="stat"><b style="color:#FFB627">'+t.A+'</b>Activity</div><div class="stat"><b style="color:#2EC4B6">'+t.S+'</b>Service</div></div>';
+  h+='<h2>'+(e.id?'Edit entry · تعديل':'Add experience · أضف تجربة')+'</h2><form id="f" class="card">'+
+  '<input type="hidden" name="id" value="'+casEsc(e.id||'')+'">'+
+  '<label>Title · العنوان</label><input name="title" required maxlength="160" value="'+casEsc(e.title||'')+'">'+
+  '<div class="row"><div><label>Type · النوع</label><select name="kind">'+['experience','reflection','evidence','project'].map(function(k){return '<option'+(e.kind===k?' selected':'')+'>'+k+'</option>';}).join('')+'</select></div>'+
+  '<div><label>Date · التاريخ</label><input type="date" name="happened_on" value="'+casEsc(e.happened_on||'')+'"></div>'+
+  '<div><label>Hours · الساعات</label><input type="number" step="0.5" min="0" max="500" name="hours" value="'+casEsc(e.hours==null?'':e.hours)+'"></div></div>'+
+  '<label>Strand · المحور</label><div class="checks">'+['C','A','S'].map(function(s){return '<label><input type="checkbox" name="strands" value="'+s+'"'+((e.strands||[]).indexOf(s)>-1?' checked':'')+'>'+s+' — '+casStrandName[s]+'</label>';}).join('')+'</div>'+
+  '<label>What did you do? · ماذا فعلت؟</label><textarea name="description" maxlength="5000">'+casEsc(e.description||'')+'</textarea>'+
+  '<label>Reflection · تأمل (what did you learn / feel?)</label><textarea name="reflection" maxlength="5000">'+casEsc(e.reflection||'')+'</textarea>'+
+  '<label>Learning outcomes · مخرجات التعلم</label><div class="checks">'+[1,2,3,4,5,6,7].map(function(n){return '<label title="'+casEsc(casLO[n])+'"><input type="checkbox" name="outcomes" value="'+n+'"'+((e.outcomes||[]).indexOf(n)>-1?' checked':'')+'>LO'+n+'</label>';}).join('')+'</div>'+
+  '<label>Evidence link (https) · رابط الدليل (صورة/فيديو/مستند)</label><input type="url" name="link" placeholder="https://" value="'+casEsc(e.link||'')+'">'+
+  '<p class="muted">Public link only — the page can’t upload files. Paste a Drive/YouTube/Canva link. · الرابط عام، الصفحة لا ترفع ملفات.</p>'+
+  '<div class="row"><button type="submit">Save · حفظ</button>'+(e.id?'<button type="button" class="alt" id="cancel">Cancel · إلغاء</button>':'')+'</div><p id="msg"></p></form>';
+  h+='<h2>My entries · تجاربي</h2>'+(data.entries.length?data.entries.map(function(x){return casCard(x,'<div class="row"><button class="alt" data-edit="'+x.id+'">Edit</button><button class="alt" data-del="'+x.id+'">Delete</button></div>');}).join(''):'<p class="muted">Nothing yet. · لا شيء بعد.</p>');
+  app.innerHTML=h;
+  document.getElementById('f').onsubmit=save;
+  var c=document.getElementById('cancel');if(c)c.onclick=function(){editing=null;render();};
+  app.querySelectorAll('[data-edit]').forEach(function(b){b.onclick=function(){editing=data.entries.filter(function(x){return x.id===b.dataset.edit})[0];render();window.scrollTo(0,0);};});
+  app.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){if(confirm('Delete? · حذف؟'))casRpc('cas_delete',{p_code:code,p_id:b.dataset.del}).then(function(){editing=null;load();});};});
+}
+function save(ev){
+  ev.preventDefault();var f=ev.target,m=document.getElementById('msg');
+  function vals(n){return Array.prototype.map.call(f.querySelectorAll('[name='+n+']:checked'),function(i){return n==='outcomes'?+i.value:i.value;});}
+  var en={id:f.id.value||null,title:f.title.value,kind:f.kind.value,happened_on:f.happened_on.value,hours:f.hours.value,
+    strands:vals('strands'),outcomes:vals('outcomes'),description:f.description.value,reflection:f.reflection.value,link:f.link.value};
+  casRpc('cas_save',{p_code:code,p_entry:en}).then(function(){editing=null;load();}).catch(function(){m.className='err';m.textContent='Could not save. Check the fields. · تعذّر الحفظ.';});
+}
+load();
+</script>
+</body>
+</html>
