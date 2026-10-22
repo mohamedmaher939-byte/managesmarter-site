@@ -34,7 +34,7 @@ function list(){
 }
 function student(id,code){
   casRpc('cas_admin_student',{p_key:key,p_id:id}).then(function(d){
-    app.innerHTML='<p><a href="#" id="back">← All students · الطلاب</a></p><h2>'+casEsc(d.name)+' <span class="muted">'+casEsc(d.class)+'</span></h2>'+
+    app.innerHTML='<p><a href="#" id="back">← All students · الطلاب</a></p><h2>'+casEsc(d.name)+' <span class="muted">'+casEsc(d.class)+'</span></h2><p><a href="/cas/me/?c='+encodeURIComponent(code||'')+'" target="_blank" rel="noopener">Open student page with presentation · افتح صفحة الطالب (فيها العرض) ↗</a></p>'+
       (d.entries.length?d.entries.map(function(e){return casCard(e,'<label>Teacher note · ملاحظة</label><textarea data-n="'+e.id+'" maxlength="2000">'+casEsc(e.teacher_note)+'</textarea><button class="alt" data-save="'+e.id+'">Save note</button>');}).join(''):'<p class="muted">No entries yet. · لا توجد تجارب.</p>');
     app.querySelectorAll('.tnote').forEach(function(n){n.remove();});
     document.getElementById('back').onclick=function(e){e.preventDefault();list();};
